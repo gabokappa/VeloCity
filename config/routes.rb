@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'components/index'
+      get 'components/create'
+      get 'components/show'
+      get 'components/destroy'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'bikes/index'
       get 'bikes/create'
       get 'bikes/show'

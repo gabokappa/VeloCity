@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comp_name: MyString
+  distance_done: 1
+  max_distance: 1
+  bike: one
+
+two:
+  comp_name: MyString
+  distance_done: 1
+  max_distance: 1
+  bike: two
