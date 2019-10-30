@@ -1,11 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../components/Home";
+import StravaAuth from '../components/StravaAuth';
+import Heading from '../components/Heading';
+import User from '../components/User';
 
 export default (
     <Router>
+        <Heading />
         <Switch>
-            <Route path="/" exact component={Home} />
+        <Route exact path="/" component={StravaAuth} />
+        <Route exact path="/user" component={User} />
         </Switch>
     </Router>
 );
