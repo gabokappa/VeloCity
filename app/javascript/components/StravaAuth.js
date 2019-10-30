@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class StravaAuth extends Component {
+  
+  componentDidMount(){
+    return "Hello"
+  }
 
   render() {
     return (
