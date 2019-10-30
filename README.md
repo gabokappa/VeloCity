@@ -26,3 +26,12 @@ As a user I would like to be able to purchase replacement parts through the app
 | :--------- | -------------: |
 | Postman    |                |
 | Strava Api |                |
+
+## Setting up environment for first time
+
+1. Bundle install
+1. yarn install --check-files
+1. rails db:create
+1. rails db:migrate
+1. db:migrate RAILS_ENV=test
+1. Rails s

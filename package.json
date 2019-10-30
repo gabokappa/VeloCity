@@ -20,6 +20,19 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.11.0",
     "webpack-dev-server": "^3.9.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "config/webpack"
+    ]
   }
 }
