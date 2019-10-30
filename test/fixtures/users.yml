@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  sur_name: MyString
+  username: MyString
+  email: MyString
+  password: MyString
+  strava_id: 1
+  access_token: MyString
+  access_token_expiry: 2019-10-30 11:40:32
+  refresh_token: MyString
+
+two:
+  first_name: MyString
+  sur_name: MyString
+  username: MyString
+  email: MyString
+  password: MyString
+  strava_id: 1
+  access_token: MyString
+  access_token_expiry: 2019-10-30 11:40:32
+  refresh_token: MyString
