@@ -11,7 +11,7 @@ export default (
         <Switch>
         <Route exact path="/" component={StravaAuth} />
         <Route exact path="/user" component={User} />
-        <Route path="/bikes" exact component={Bikes} />
+        <Route exact path="/bikes" component={Bikes} />
         </Switch>
     </Router>
 );

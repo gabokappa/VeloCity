@@ -8,7 +8,6 @@ class Bikes extends React.Component {
             bikes: []
         };
     }
-}
 
 componentDidMount() {
     const url = "api/v1/bikes/index";
@@ -20,8 +19,7 @@ componentDidMount() {
             throw new Error("Network response was not ok.");
         })
         .then(response => this.setState({ bikes: response }))
-        .catch(() => this.props.history.push("/"));
-    }
+        // .catch(() => this.props.history.push("/"));
 }
 
 render() {
