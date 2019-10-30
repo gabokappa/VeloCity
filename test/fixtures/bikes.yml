@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bike_name: MyString
+  distance_done: 1
+  user: one
+
+two:
+  bike_name: MyString
+  distance_done: 1
+  user: two
