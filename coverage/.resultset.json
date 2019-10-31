@@ -17,8 +17,8 @@
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/api/v1/users_controller.rb": [
         1,
         1,
-        0,
-        0,
+        2,
+        2,
         null,
         null,
         1,
@@ -41,6 +41,11 @@
         null,
         null
       ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/mailers/application_mailer.rb": [
         0,
         0,
@@ -54,11 +59,6 @@
       ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/bike.rb": [
         0,
-        0,
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
         0,
         0,
         0
@@ -119,6 +119,6 @@
         0
       ]
     },
-    "timestamp": 1572529302
+    "timestamp": 1572531237
   }
 }
