@@ -10,7 +10,7 @@ class Bikes extends React.Component {
     }
 
 componentDidMount() {
-    const url = "api/v1/bikes/index";
+    const url = "api/v1/bikes/index?user_id=1";
     fetch(url)
         .then(response => {
             if (response.ok) {
