@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import queryString from 'query-string'
 
 class User extends Component {
-  componentDidMount() {
-    // Needs an API call or something here.
-  }
   
   render() {
     return (
