@@ -14,7 +14,7 @@ RSpec.describe Api::V1::ComponentsController, type: :request do
     end
 
     it 'show/1 returns a specific JSON object' do
-      get '/api/v1/components/show?bike_id=1'
+      post '/api/v1/components/show/1'
       json = JSON.parse(response.body)
       expect(json.first['id']).to eq(1)
     end
