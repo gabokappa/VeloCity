@@ -63,11 +63,11 @@ render() {
             <div className="container py-5">
                 <h1 className="display-4">Bikes </h1>
                 <p className="lead text-muted">
-                    Here are all of your bikes.
+                    Here are all of your bikes. Which one.
                 </p>
             </div>
-
-            <div>
+            
+            <div className="py-5">
                 <main className="container">
                     <div className="text-right mb-3">
                         <Link to="/bike" className="btn custom-button">
