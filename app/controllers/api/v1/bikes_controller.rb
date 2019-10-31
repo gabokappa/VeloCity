@@ -1,7 +1,11 @@
 class Api::V1::BikesController < ApplicationController
   def index
     bikes = Bike.where("user_id = #{params[:user_id]}")
-    render json: bikes
+    bikeComponent = []
+    bikes.each do |bike|
+      bikeComponent.push([bike, Component.where("bike_id = #{bike.id}")])
+    end
+    render json: bikeComponent
   end
 
   def create

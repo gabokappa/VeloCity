@@ -26,21 +26,20 @@ render() {
     const { bikes } = this.state;
     const allBikes = bikes.map((bike, index) => (
         <div key={index} className="col-md-6 col-lg-4">
-        <div className="card mb-4">
-            <img
-            src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
-            className="card-img-top"
-            alt={`${bike.name} image`}
-            />
-            <div className="card-body">
-            <h5 className="card-title">Bike name: {bike.bike_name}</h5>
-                <h5 className="card-title">Bike mileage: {bike.distance_done}</h5>
-            <Link to={`/bike/${bike.id}`} className="btn custom-button">
-            View Bike
-            </Link>
+            <div className="card mb-4">
+                <img
+                src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
+                className="card-img-top"
+                alt={`${bike.name} image`}/>
+                <div className="card-body">
+                    <h5 className="card-title">Bike name: {bike.bike_name}</h5>
+                    <h5 className="card-title">Bike mileage: {bike.distance_done}</h5>
+                    <Link to={`/bike/${bike.id}`} className="btn custom-button">
+                        View Bike
+                    </Link>
+                </div>
             </div>
-            </div>
-            </div>
+        </div>
     ));
 
     const noBike = (
