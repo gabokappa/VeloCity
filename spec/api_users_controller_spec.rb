@@ -14,6 +14,7 @@ RSpec.describe Api::V1::UsersController, type: :request do
       get '/api/v1/users/index/'
       json = JSON.parse(response.body)
       expect(json.length).to eq(User.count)
+      expect(User.all.first).to have_attributes :id => (a_value > 0)
     end
 
     it 'first user has an id of 1' do
