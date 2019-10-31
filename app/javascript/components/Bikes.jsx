@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BikePart from './BikePart';
 
 class Bikes extends React.Component {
     constructor(props) {
@@ -35,11 +36,10 @@ render() {
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
-                    
-                    
-                    <ul>{bikeAndParts[1].map((parts) => {
-                    return <li>Component: {parts.comp_name} ({parts.distance_done} / {parts.max_distance})<br/></li>
-                    })}
+                    <ul>
+                        {bikeAndParts[1].map((part) => {
+                        return <li><BikePart part={part} /></li>
+                        })}
                     </ul>
                 
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
