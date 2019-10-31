@@ -58,31 +58,27 @@ render() {
         </div>
     );
     return (
-        <>
-
-            <div className="container py-5">
+        <div>
+            <div className="container py-1">
                 <h1 className="display-4">Bikes </h1>
                 <p className="lead text-muted">
                     Here are all of your bikes. Which one.
                 </p>
             </div>
             
-            <div className="py-5">
+            <div>
                 <main className="container">
+                    <div className="row">
+                        {bikes.length > 0 ? allBikesAndParts : noBike}
+                    </div>
                     <div className="text-right mb-3">
                         <Link to="/bike" className="btn custom-button">
                             Add New Bike
                         </Link>
                     </div>
-                    <div className="row">
-                        {bikes.length > 0 ? allBikesAndParts : noBike}
-                    </div>
-                    <Link to="/" className="btn btn-link">
-                        Home
-                    </Link>
                 </main>
             </div>
-        </>
+        </div>
     );
 }
 }
