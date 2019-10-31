@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get 'bikes/index'
       get 'bikes/create'
       get 'bikes/show'
+      post 'bikes/show/:id', to: 'bikes#show'
+      # modified the route above to see if tested well.
       get 'bikes/destroy'
     end
   end
