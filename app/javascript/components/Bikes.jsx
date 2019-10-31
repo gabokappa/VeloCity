@@ -24,17 +24,19 @@ componentDidMount() {
 
 render() {
     const { bikes } = this.state;
-    const allBikes = bikes.map((bike, index) => (
+
+    const allBikesAndParts = bikes.map((bikeAndParts, index) => (
         <div key={index} className="col-md-6 col-lg-4">
             <div className="card mb-4">
                 <img
                 src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
                 className="card-img-top"
-                alt={`${bike.name} image`}/>
+                alt={`${bikeAndParts[0].name} image`}/>
                 <div className="card-body">
-                    <h5 className="card-title">Bike name: {bike.bike_name}</h5>
-                    <h5 className="card-title">Bike mileage: {bike.distance_done}</h5>
-                    <Link to={`/bike/${bike.id}`} className="btn custom-button">
+                    <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
+                    <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
+                    <h5 className="card-title">Component name: {bikeAndParts[1][0].comp_name}</h5>
+                    <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
                 </div>
@@ -67,7 +69,7 @@ render() {
                         </Link>
                     </div>
                     <div className="row">
-                        {bikes.length > 0 ? allBikes : noBike}
+                        {bikes.length > 0 ? allBikesAndParts : noBike}
                     </div>
                     <Link to="/" className="btn btn-link">
                         Home

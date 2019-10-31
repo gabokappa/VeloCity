@@ -1,11 +1,9 @@
 class Api::V1::BikesController < ApplicationController
   def index
-    bikes = Bike.where("user_id = #{params[:user_id]}")
-    bikeComponent = []
-    bikes.each do |bike|
-      bikeComponent.push([bike, Component.where("bike_id = #{bike.id}")])
-    end
-    render json: bikeComponent
+    bikes = Bike.where(user_id: params[:user_id])
+    bike_parts = []
+    bikes.each { |b| bike_parts.push([b, Component.where(bike_id: b.id)]) }
+    render json: bike_parts
   end
 
   def create
@@ -13,7 +11,7 @@ class Api::V1::BikesController < ApplicationController
 
   def show
     bike = Bike.find(params[:id])
-    components = Component.where("bike_id = #{bike.id}")
+    components = Component.where(bike_id: bike.id)
     render json: {bike:bike, components:components}
   end
 
