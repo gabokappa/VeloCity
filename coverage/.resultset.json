@@ -1,6 +1,45 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/homepage_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/api/v1/users_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/mailers/application_mailer.rb": [
         0,
         0,
@@ -18,16 +57,6 @@
         0,
         0
       ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
-        0,
-        0,
-        0
-      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/jobs/application_job.rb": [
         0,
         null,
@@ -37,29 +66,8 @@
         null,
         0
       ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/application_controller.rb": [
-        0,
-        0
-      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/homepage_controller.rb": [
         0,
-        0,
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/api/v1/users_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
         0,
         0,
         0
@@ -98,14 +106,6 @@
         0,
         0
       ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/homepage_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/application_helper.rb": [
-        0,
-        0
-      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/channels/application_cable/connection.rb": [
         0,
         0,
@@ -119,6 +119,6 @@
         0
       ]
     },
-    "timestamp": 1572522640
+    "timestamp": 1572528794
   }
 }
