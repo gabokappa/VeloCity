@@ -1,16 +1,25 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/application_helper.rb": [
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
         1,
-        null
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/homepage_helper.rb": [
+        null,
+        null,
+        1,
+        null,
         1,
         null
       ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/application_record.rb": [
         1,
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/helpers/homepage_helper.rb": [
         1,
         null
       ],
@@ -27,8 +36,8 @@
         null,
         1,
         2,
-        2,
-        2,
+        0,
+        0,
         null,
         null,
         1,
@@ -84,13 +93,8 @@
         1,
         1,
         null
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
-        1,
-        1,
-        null
       ]
     },
-    "timestamp": 1572600764
+    "timestamp": 1572610029
   }
 }
