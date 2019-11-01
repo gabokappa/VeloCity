@@ -89,35 +89,8 @@
         1,
         1,
         null
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/jobs/application_job.rb": [
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1572556787
+    "timestamp": 1572600348
   }
 }
