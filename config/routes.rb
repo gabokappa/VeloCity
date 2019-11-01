@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'strava/index'
+      get 'strava/create'
+      get 'strava/show'
+      get 'strava/destroy'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'components/index'
       get 'components/create'
       get 'components/show'
