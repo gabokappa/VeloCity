@@ -26,10 +26,14 @@ class Api::V1::StravaController < ApplicationController
 
   def find_bikes
     user = User.find_by(id: '1')
-    p user.access_token
     response = RestClient.get('https://www.strava.com/api/v3/athlete/activities?per_page=200', {Authorization: 'Bearer ' + user.access_token})
-    p response
-    redirect_to root_url
+    json = JSON.parse(response)
+    bike_ids = []
+    json.each { |activity|
+      if activity["gear_id"][0] == "b"
+        bike_ids.push(activity["gear_id"])
+      end }
+    render json: { bikes: bike_ids.uniq! }
 
 
   end
