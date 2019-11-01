@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: %i[show update]
+  before_action :set_user, only: %i[show update destroy]
 
   def index
     users = User.all.order(created_at: :desc)
@@ -28,7 +28,10 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @user.destroy
+    head 204
+  end
 
   private
 
@@ -41,4 +44,3 @@ class Api::V1::UsersController < ApplicationController
   end
 
 end
-
