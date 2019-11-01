@@ -4,12 +4,18 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 100
 
 AllCops:
   Exclude:
+    - './bin/*'
     - './spec/spec_helper.rb'
+    - './config/**/*'
+    - './db/**/*'
     - './test/*'
     - './spec/rails_helper.rb'
     - './node_modules/**/*'

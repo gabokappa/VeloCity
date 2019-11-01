@@ -4,14 +4,12 @@ class Api::V1::ComponentsController < ApplicationController
     render json: components
   end
 
-  def create
-  end
+  def create; end
 
   def show
     components = Component.where("bike_id = #{params[:bike_id]}")
     render json: components
   end
 
-  def destroy
-  end
+  def destroy; end
 end

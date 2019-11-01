@@ -32,3 +32,4 @@ yarn-debug.log*
 /coverage
 ./coverage
 ./coverage/assets
+/coverage/*

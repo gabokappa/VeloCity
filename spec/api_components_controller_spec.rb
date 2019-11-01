@@ -9,8 +9,8 @@ RSpec.describe Api::V1::ComponentsController, type: :request do
 
     it 'returns a JSON object' do
       get '/api/v1/components/index'
-      json = JSON.parse(response.body)
-      expect(Component.all.first).to have_attributes :id => (a_value > 0)
+      # json = JSON.parse(response.body)
+      expect(Component.all.first).to have_attributes id: (a_value > 0)
     end
 
     it 'show/1 returns a specific JSON object' do
@@ -18,6 +18,5 @@ RSpec.describe Api::V1::ComponentsController, type: :request do
       json = JSON.parse(response.body)
       expect(json.first['id']).to eq(1)
     end
-
   end
 end
