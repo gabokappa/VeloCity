@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :email, uniqueness: true
   validates_format_of :email, with: /@/
-  validates :password, presence: true
+  validates :password_digest, presence: true
   has_many :bikes, dependent: :destroy
+  has_secure_password
 end

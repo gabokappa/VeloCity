@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_174706) do
     t.string "sur_name"
     t.string "username"
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.integer "strava_id"
     t.string "access_token"
     t.datetime "access_token_expiry"
