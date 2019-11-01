@@ -30,7 +30,7 @@ class Api::V1::StravaController < ApplicationController
     json = JSON.parse(response)
     bike_ids = []
     json.each { |activity|
-      if activity["gear_id"][0] == "b"
+      if activity["gear_id"] && activity["gear_id"][0] == "b"
         bike_ids.push(activity["gear_id"])
       end }
     p bike_ids.uniq!
