@@ -33,8 +33,8 @@ class Api::V1::StravaController < ApplicationController
       if activity["gear_id"][0] == "b"
         bike_ids.push(activity["gear_id"])
       end }
+    p bike_ids.uniq!
     render json: { bikes: bike_ids.uniq! }
-
 
   end
 end
