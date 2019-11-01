@@ -18,16 +18,24 @@ Rails.application.routes.draw do
       get 'bikes/destroy'
     end
   end
-  namespace :api do
+
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      get 'users/index'
-      post 'users/create'
-      get '/show/:id', to: 'users#show'
-      get '/users/:id', to: 'users#show'
-      get 'users/update'
-      delete '/destroy/:id', to: 'users#destroy'
-    end
+      resources :users, only: %i[show create update]
   end
+    end
+
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     get 'users/index'
+  #     post 'users/create'
+  #     get '/show/:id', to: 'users#show'
+  #     get '/users/:id', to: 'users#show'
+  #     get 'users/update'
+  #     delete '/destroy/:id', to: 'users#destroy'
+  #   end
+  # end
   root 'homepage#index'
   get '/*path' => 'homepage#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
