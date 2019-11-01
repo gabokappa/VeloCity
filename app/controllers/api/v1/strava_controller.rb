@@ -23,4 +23,14 @@ class Api::V1::StravaController < ApplicationController
     user.update(strava_id: json['athlete']['id'], access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
     redirect_to root_url
   end
+
+  def find_bikes
+    user = User.find_by(id: '1')
+    p user.access_token
+    response = RestClient.get('https://www.strava.com/api/v3/athlete/activities?per_page=200', {Authorization: 'Bearer ' + user.access_token})
+    p response
+    redirect_to root_url
+
+
+  end
 end
