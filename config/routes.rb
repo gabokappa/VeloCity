@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'strava/create'
       get 'strava/show'
       get 'strava/destroy'
+      get 'strava/authorize'
     end
   end
   namespace :api do

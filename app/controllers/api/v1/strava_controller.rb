@@ -11,4 +11,8 @@ class Api::V1::StravaController < ApplicationController
 
   def destroy
   end
+
+  def authorize
+    p params
+  end
 end
