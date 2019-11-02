@@ -12,5 +12,6 @@ RSpec.describe Component, type: :model do
     part = Component.new(bike_id: nil)
     expect(part.valid?).to eq(false)
   end
-
 end
+
+# TODO Add COMPONENTS tests here if the model changes and has another unique value , e.g strava id?
