@@ -10,14 +10,16 @@ RSpec.describe Api::V1::BikesController, type: :request do
     end
 
     it 'returns a JSON' do
-      post '/api/v1/bikes/show/1'
+      bike1 = FactoryBot.create(:bike)
+      post "/api/v1/bikes/show/#{bike1.id}"
       expect(response).to have_http_status(200)
     end
 
     it 'returns a ' do
-      post '/api/v1/bikes/show/1'
+      bike1 = FactoryBot.create(:bike)
+      post "/api/v1/bikes/show/#{bike1.id}"
       json = JSON.parse(response.body)
-      expect(json.first[1]['id']).to eq(1)
+      expect(json.first[1]['bike_name']).to eq('My Bike')
     end
   end
 end

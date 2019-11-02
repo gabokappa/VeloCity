@@ -11,6 +11,7 @@ RSpec.describe Api::V1::UsersController, type: :request do
     end
 
     it 'returns a JSON' do
+      FactoryBot.create(:user)
       get '/api/v1/users/index/'
       json = JSON.parse(response.body)
       expect(json.length).to eq(User.count)
@@ -18,9 +19,10 @@ RSpec.describe Api::V1::UsersController, type: :request do
     end
 
     it 'first user has an id of 1' do
+      FactoryBot.create(:user)
       get '/api/v1/users/index/'
       json = JSON.parse(response.body)
-      expect(json.first['id']).to eq(1)
+      expect(json.first['first_name']).to eq('Joe')
     end
   end
 end
