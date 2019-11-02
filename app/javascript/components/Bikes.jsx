@@ -25,6 +25,7 @@ componentDidMount() {
 
 render() {
     const { bikes } = this.state;
+    /* eslint-disable no-alert, react/jsx-key */
 
     const allBikesAndParts = bikes.map((bikeAndParts, index) => (
         <div key={index} className="col-md-6 col-lg-4">
@@ -41,7 +42,6 @@ render() {
                         return <li><BikePart part={part} /></li>
                         })}
                     </ul>
-                
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
@@ -49,6 +49,7 @@ render() {
             </div>
         </div>
     ));
+    /* eslint-enable no-alert, react/jsx-key */
 
     const noBike = (
         <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
@@ -65,7 +66,7 @@ render() {
                     Here are all of your bikes. Which one.
                 </p>
             </div>
-            
+
             <div>
                 <main className="container">
                     <div className="row">

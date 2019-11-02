@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 class BikePart extends Component {
-  
+
+/* eslint-disable no-alert, react/prop-types */
   render() {
     const { part } = this.props
     return (
@@ -9,5 +10,5 @@ class BikePart extends Component {
     )
   }
 }
-
+/* eslint-enable no-alert, react/prop-types */
 export default BikePart

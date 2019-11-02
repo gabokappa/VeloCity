@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import queryString from 'query-string'
 
 class User extends Component {
-  
+
+  /* eslint-disable no-alert, react/prop-types */
   render() {
     return (
       <div>
@@ -14,5 +15,6 @@ class User extends Component {
     )
   }
 }
+/* eslint-enable no-alert, react/prop-types */
 
 export default User

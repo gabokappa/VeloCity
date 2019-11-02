@@ -5,7 +5,6 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "extends": "plugin:react/recommended",
-
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -22,4 +21,5 @@ module.exports = {
     ],
     "rules": {
     }
+    
 };

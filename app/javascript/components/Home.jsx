@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/* eslint-disable no-alert, react/display-name */
 export default () => (
     <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
         <div className="jumbotron jumbotron-fluid bg-transparent">
@@ -21,3 +22,4 @@ export default () => (
         </div>
     </div>
 );
+/* eslint-enable no-alert, react/display-name */
