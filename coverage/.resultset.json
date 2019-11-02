@@ -17,10 +17,10 @@
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/api/v1/bikes_controller.rb": [
         1,
         1,
-        1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        3,
+        2,
         null,
         null,
         1,
@@ -91,6 +91,6 @@
         null
       ]
     },
-    "timestamp": 1572704931
+    "timestamp": 1572712839
   }
 }

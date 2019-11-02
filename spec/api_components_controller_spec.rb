@@ -10,8 +10,8 @@ RSpec.describe Api::V1::ComponentsController, type: :request do
     it 'returns a JSON object' do
       FactoryBot.create(:component)
       get '/api/v1/components/index'
-      # json = JSON.parse(response.body)
-      expect(Component.all.first).to have_attributes id: (a_value > 0)
+      json = JSON.parse(response.body)
+      expect(json[0]['distance_done']).to eq(200)
     end
 
     it 'show/1 returns a specific JSON object' do
