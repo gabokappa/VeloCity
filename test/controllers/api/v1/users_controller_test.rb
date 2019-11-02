@@ -46,4 +46,18 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     as: :json
     assert_response :unprocessable_entity
   end
+
+  test "should destroy user" do
+    assert_difference('User.count', -1) do
+      delete api_v1_user_url(@user),
+      headers: { Authorization: JsonWebToken.encode(user_id: @user.id) },
+      as: :json
+    end
+    assert_response :no_content
+  end
+
+  test "should forbid destroy user without JWT" do
+    delete api_v1_user_url(@user), as: :json
+    assert_response :forbidden
+  end
 end
