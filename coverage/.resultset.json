@@ -14,6 +14,17 @@
         1,
         null
       ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/bike.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/component.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/user.rb": [
         1,
         1,
@@ -74,23 +85,12 @@
         1,
         null
       ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/bike.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/models/component.rb": [
-        1,
-        1,
-        null
-      ],
       "/Users/user1/Projects/final_project/day3/rails_react_velocity/app/controllers/homepage_controller.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1572713444
+    "timestamp": 1572715456
   }
 }
