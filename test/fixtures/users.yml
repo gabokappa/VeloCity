@@ -1,23 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  sur_name: MyString
-  username: MyString
-  email: MyString
-  password: MyString
+  first_name: John
+  sur_name: Doe
+  username: john_doe
+  email: john@email.com
+  password_digest: <%= BCrypt::Password.create('good_password', cost: 1) %>
   strava_id: 1
-  access_token: MyString
+  access_token: access_token1
   access_token_expiry: 2019-10-30 11:40:32
-  refresh_token: MyString
+  refresh_token: refresh_token1
 
 two:
-  first_name: MyString
-  sur_name: MyString
-  username: MyString
-  email: MyString
-  password: MyString
-  strava_id: 1
-  access_token: MyString
+  first_name: Jane
+  sur_name: Doe
+  username: jane_doe
+  email: jane@email.com
+  password_digest: <%= BCrypt::Password.create('good_password', cost: 1) %>
+  strava_id: 2
+  access_token: access_token2
   access_token_expiry: 2019-10-30 11:40:32
-  refresh_token: MyString
+  refresh_token: refresh_token2
