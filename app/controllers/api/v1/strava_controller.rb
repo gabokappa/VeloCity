@@ -24,6 +24,17 @@ class Api::V1::StravaController < ApplicationController
   end
 
   def find_bikes
+    bike_ids = get_bike_ids()
+    bikes = []
+    bike_ids.each {|bike_id|
+      bikes.push(get_bike(bike_id))
+    }
+    render json: { bikes: bikes }
+  end
+
+  private
+  
+  def get_bike_ids()
     # TODO - hardcoded user ID
     user = User.find_by(id: '1')
     response = RestClient.get('https://www.strava.com/api/v3/athlete/activities?per_page=200', {Authorization: 'Bearer ' + user.access_token})
@@ -34,16 +45,6 @@ class Api::V1::StravaController < ApplicationController
         bike_ids.push(activity["gear_id"])
       end }
     bike_ids.uniq!
-    
-    bikes = []
-    bike_ids.each {|bike_id|
-      bikes.push(get_bike(bike_id))
-    }
-    render json: { bikes: bikes }
-  end
-
-  def get_bike_ids(bikeID)
-    
   end
 
   def get_bike(bikeID)

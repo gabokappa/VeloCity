@@ -12,7 +12,7 @@ class StravaAuth extends Component {
   };
   }
 
-  getBikes() { 
+  getBikes = () => { 
       const url = "api/v1/strava/find_bikes";
       fetch(url)
           .then(response => {
