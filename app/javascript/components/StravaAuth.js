@@ -6,9 +6,8 @@ class StravaAuth extends Component {
 
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      bikes: []
+      newBikes: []
   };
   }
 
@@ -22,12 +21,11 @@ class StravaAuth extends Component {
               throw new Error("Network response was not ok.");
           })
           .then(response => {console.log(response)})
-          .then(response => this.setState({ bikes: response }))
+          .then(response => this.setState({ newBikes: response }))
       }
 
-  handleSubmit(event) {
-    let path = `/bikes`;
-    this.props.history.push(path);
+  viewBikes = () => {
+    this.props.history.push('/bikes');
   }
 
   componentDidMount(){
@@ -35,13 +33,12 @@ class StravaAuth extends Component {
   }
 
   render() {
-    const { bikes } = this.state;
     return (
 
       <div className="container py-1">
         <h1 className="display-4">Click <a href='http://www.strava.com/oauth/authorize?client_id=40250&response_type=code&redirect_uri=http://localhost:3000/api/v1/strava/authorize&scope=read,activity:read,activity:read_all&approval_prompt=force'> HERE</a> to Authorize us to use your Strava data</h1>
         <div className="text-right mb-3">
-        <button className="btn btn-primary btn-lg" onClick={this.handleSubmit}>Click here to view your Bikes</button>
+        <button className="btn btn-primary btn-lg" onClick={this.viewBikes}>Click here to view your Bikes</button>
         </div><br/>
         <div><button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
         </div>

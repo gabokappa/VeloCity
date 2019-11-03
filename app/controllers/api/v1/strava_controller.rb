@@ -14,6 +14,7 @@ class Api::V1::StravaController < ApplicationController
   def destroy
   end
 
+  # Newly Authorised User - update all fields on table
   def authorize
     response = RestClient.post 'https://www.strava.com/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', code: params["code"], grant_type: 'authorization_code' }
     json = JSON.parse(response)
@@ -23,20 +24,23 @@ class Api::V1::StravaController < ApplicationController
     redirect_to root_url
   end
 
+  # Called to find all bikes used in the last period of time
   def find_bikes
     bike_ids = get_bike_ids()
     bikes = []
     bike_ids.each {|bike_id|
       bikes.push(get_bike(bike_id))
     }
-    render json: { bikes: bikes }
+    render json: { new_bikes: bikes }
   end
 
   private
-  
+
+  # Gets a unique list of bike ID's
   def get_bike_ids()
     # TODO - hardcoded user ID
     user = User.find_by(id: '1')
+    authorize_time_check(user)
     response = RestClient.get('https://www.strava.com/api/v3/athlete/activities?per_page=200', {Authorization: 'Bearer ' + user.access_token})
     json = JSON.parse(response)
     bike_ids = []
@@ -47,10 +51,30 @@ class Api::V1::StravaController < ApplicationController
     bike_ids.uniq!
   end
 
+  # Gets the name and milage for a specific bike
   def get_bike(bikeID)
     # TODO - hardcoded user ID
     user = User.find_by(id: '1')
+    authorize_time_check(user)
     response = RestClient.get('https://www.strava.com/api/v3/gear/'+bikeID, {Authorization: 'Bearer ' + user.access_token})
     bike = JSON.parse(response)
   end
+
+  # Checks that the users authorisation code hasn't expired
+  def authorize_time_check(user)
+    if (user.access_token_expiry < Time.now)
+      p "token expired"
+      refresh_authorisation(user)
+    else
+      p "token not expired"
+    end
+  end
+
+  # If required, gets new authorisation code and refresh token
+  def refresh_authorisation(user)
+    response = RestClient.post 'https://www.strava.com/api/v3/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', grant_type: 'refresh_token', refresh_token: user.refresh_token }
+    json = JSON.parse(response)
+    # TODO - hardcoded user ID
+    user.update(access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
+  end 
 end
