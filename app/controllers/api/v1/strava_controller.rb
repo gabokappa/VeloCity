@@ -1,6 +1,10 @@
 
 
 class Api::V1::StravaController < ApplicationController
+  # TODO need to check this line isn't dangerous.  Fixed it falling over with
+  # "Can't verify CSRF token authenticity." Error
+  protect_from_forgery with: :null_session
+
   def index
   end
 
@@ -34,6 +38,20 @@ class Api::V1::StravaController < ApplicationController
     render json: { new_bikes: bikes }
   end
 
+  # Calls Strava and refreshes bike milage with results
+  def refresh_bikes
+    bike_ids = params["bike_ids"].split(',')
+    p bike_ids
+    bike_ids.each {|bike_id|
+      bike = get_bike(bike_id)
+      p bike["distance"]
+      # TODO add strava bike id to table
+      # Bike.find_by(strava_id: bike_id)
+      Bike.find_by(id: '1')
+      Bike.update(distance_done: bike["distance"])
+    }
+  end
+
   private
 
   # Gets a unique list of bike ID's
@@ -63,10 +81,7 @@ class Api::V1::StravaController < ApplicationController
   # Checks that the users authorisation code hasn't expired
   def authorize_time_check(user)
     if (user.access_token_expiry < Time.now)
-      p "token expired"
       refresh_authorisation(user)
-    else
-      p "token not expired"
     end
   end
 

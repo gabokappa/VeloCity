@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'strava/destroy'
       get 'strava/authorize'
       get 'strava/find_bikes'
+      post 'strava/refresh_bikes'
     end
   end
   namespace :api do
