@@ -4,16 +4,26 @@ import { Redirect } from 'react-router-dom'
 class StravaAuth extends Component {
 
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      bikes: []
+  };
   }
 
-  getBikes() {
-    const axios = require('axios');
-    axios.get('http://localhost:3000/api/v1/strava/find_bikes')
-        .then(response => {console.log(response)})
-  }
+  getBikes() { 
+      const url = "api/v1/strava/find_bikes";
+      fetch(url)
+          .then(response => {
+              if (response.ok) {
+                  return response.json();
+              }
+              throw new Error("Network response was not ok.");
+          })
+          .then(response => {console.log(response)})
+          .then(response => this.setState({ bikes: response }))
+      }
 
   handleSubmit(event) {
     let path = `/bikes`;
@@ -25,6 +35,7 @@ class StravaAuth extends Component {
   }
 
   render() {
+    const { bikes } = this.state;
     return (
 
       <div className="container py-1">
