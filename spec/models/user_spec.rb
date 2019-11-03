@@ -41,5 +41,6 @@ RSpec.describe User, type: :model do
   #   user.valid?
   #   expect(user.errors[:email]).to include('has already been taken')
   # end
-
 end
+
+# TODO: Uncomment the tests gradually as the rest of the user's features are unlocked

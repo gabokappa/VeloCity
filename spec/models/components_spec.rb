@@ -14,4 +14,4 @@ RSpec.describe Component, type: :model do
   end
 end
 
-# TODO Add COMPONENTS tests here if the model changes and has another unique value , e.g strava id?
+# TODO: Add COMPONENTS tests here if the model changes and has another unique value , e.g strava id?

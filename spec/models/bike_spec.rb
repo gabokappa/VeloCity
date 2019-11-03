@@ -14,4 +14,4 @@ RSpec.describe Bike, type: :model do
   end
 end
 
-# TODO Add BIKE tests here if the model changes and has another unique value , e.g strava id?
+# TODO: Add BIKE tests here if the model changes and has another unique value , e.g strava id?

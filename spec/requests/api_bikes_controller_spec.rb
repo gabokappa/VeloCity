@@ -12,7 +12,7 @@ RSpec.describe Api::V1::BikesController, type: :request do
     it 'returns a JSON object with bike parts' do
       user1 = User.create(email: 'dave@test.com', password: '123455')
       bike1 = Bike.create(bike_name: 'Speedy', user_id: user1.id)
-      part = Component.create(bike_id: bike1.id, comp_name: 'saddle')
+      Component.create(bike_id: bike1.id, comp_name: 'saddle')
       get '/api/v1/bikes/index', params: { user_id: user1.id }
       json = JSON.parse(response.body)
       expect(json.first[1][0]['comp_name']).to eq('saddle')

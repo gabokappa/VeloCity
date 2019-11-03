@@ -16,3 +16,5 @@
 #     end
 #   end
 # end
+
+# TODO: Uncomment out this section once merged with strava controller
