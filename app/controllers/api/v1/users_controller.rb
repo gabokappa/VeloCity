@@ -4,12 +4,9 @@ class Api::V1::UsersController < ApplicationController
     render json: users
   end
 
-  def create
-  end
+  def create; end
 
-  def show
-  end
+  def show; end
 
-  def destroy
-  end
+  def destroy; end
 end

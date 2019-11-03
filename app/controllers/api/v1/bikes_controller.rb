@@ -6,15 +6,13 @@ class Api::V1::BikesController < ApplicationController
     render json: bike_parts
   end
 
-  def create
-  end
+  def create; end
 
   def show
     bike = Bike.find(params[:id])
     components = Component.where(bike_id: bike.id)
-    render json: {bike: bike, components: components}
+    render json: { bike: bike, components: components }
   end
 
-  def destroy
-  end
+  def destroy; end
 end
