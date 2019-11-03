@@ -19,19 +19,36 @@ As a user I want the app to make recommendations on lifespan
 As a user I want the app to give optional reminders for preventative maintenance
 As a user I would like to be able to purchase replacement parts through the app
 ```
-
+## Installation
+To get a development environment running:
+- Install gems and dependencies
+```
+$ bundle install
+$ yarn install --check-files
+```
+- Create development and test env databases and tables
+```
+$ rails db:create
+$ rails db:migrate
+$ db:migrate RAILS_ENV=test
+```
+- Start local server and visit ```http://localhost:3000``` in browser to view VeloCity homepage
+```
+$ rails s
+```
 
 ## Technologies Used
-| Technology | How we used it |
-| :--------- | -------------: |
-| Postman    |                |
-| Strava Api |                |
-
-## Setting up environment for first time
-
-1. Bundle install
-1. yarn install --check-files
-1. rails db:create
-1. rails db:migrate
-1. db:migrate RAILS_ENV=test
-1. Rails s
+| Technology | Description | Use |
+| :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| Rails ~> v6.0.0 | Web app framework | Back-end API |
+| React | JS framework | Front-end user interface |
+| Strava API | Fitness activity tracker| Provide user cycling data |
+| RSpec | Ruby test framework  | Test Rails models and controllers |
+| Jest | React test framework | Test React components |
+| Cypress | End-to-end test framework | Test features |
+| Postman | HTTP API interface | Simulate HTTP requests |
+| ESLint | JS linter | Maintain JS code quality |
+| RuboCop | Ruby linter | Maintain Ruby code quality |
+| JWT | JSON Web Tokens | Manage authentication |
+| PostgreSQL | Database management system | Store app data in database |
+| JQuery | JS library | Add dynamic front-end behaviour |
