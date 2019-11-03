@@ -41,10 +41,8 @@ class Api::V1::StravaController < ApplicationController
   # Calls Strava and refreshes bike milage with results
   def refresh_bikes
     bike_ids = params["bike_ids"].split(',')
-    p bike_ids
     bike_ids.each {|bike_id|
       bike = get_bike(bike_id)
-      p bike["distance"]
       # TODO add strava bike id to table
       # Bike.find_by(strava_id: bike_id)
       Bike.find_by(id: '1')
