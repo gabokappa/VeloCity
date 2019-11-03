@@ -6,7 +6,10 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show user" do
-    get api_v1_user_url(@user), as: :json
+    get api_v1_user_url(@user),
+    params: { user: { email: @user.email } },
+    headers: { Authorization: JsonWebToken.encode(user_id: @user.id) },
+    as: :json
     assert_response :success
 
     json_response = JSON.parse(self.response.body)
