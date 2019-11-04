@@ -4,8 +4,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :first_name
       t.string :sur_name
       t.string :username
-      t.string :email
-      t.string :password
+      t.string :email, null: false
+      t.index :email, unique: true
+      t.string :password_digest, null: false
       t.integer :strava_id
       t.string :access_token
       t.timestamp :access_token_expiry
