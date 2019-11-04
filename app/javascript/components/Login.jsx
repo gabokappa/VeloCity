@@ -6,7 +6,8 @@ class Login extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            token: 'test'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,15 +26,22 @@ class Login extends React.Component {
         console.log("HELLO IM IN THE HANDLE SUBMIT");
         let userData = this.state;
         console.log(userData);
-        const url = "api/v1/signup/login_check";
+        const body_test = JSON.stringify({"user": {
+                "email": "gg@test.com",
+                "password": "12345678"
+            }
+        })
+        console.log(body_test);
+        const url = "api/v1/tokens";
         fetch(url, {
             method: "POST",
-            body: JSON.stringify(userData),
+            body: body_test,
             headers: {
                 'Accept': "application/json",
                 "Content-Type": "application/json"
             }
-        }).then(response => {console.log(response)})
+        }).then(response => this.setState({ token: response.token}))
+
     }
 
     render() {
@@ -58,6 +66,7 @@ class Login extends React.Component {
                 </label>
                 <br />
                 <input type="submit" value="Submit" />
+                <h1>{this.state.token}</h1>
             </form>
         );
     }
