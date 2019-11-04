@@ -21,6 +21,7 @@ class FormContainer extends React.Component {
         }
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleClearForm = this.handleClearForm.bind(this);
+        this.handleFullName = this.handleFullName.bind(this)
     }
     handleFormSubmit() {
         // TODO: Add submision logic here
@@ -28,6 +29,14 @@ class FormContainer extends React.Component {
 
     handleClearForm() {
         // Logic for resetting the form
+    }
+
+    handleFullName(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, name: value
+                }
+        }))
     }
 
     render() {
