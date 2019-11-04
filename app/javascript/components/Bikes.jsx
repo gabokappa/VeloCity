@@ -23,6 +23,16 @@ componentDidMount() {
         // .catch(() => this.props.history.push("/"));
 }
 
+    refreshBikes = () => {
+        var bike_ids = [];
+        console.log(this.state.bikes);
+        this.state.bikes.forEach(function(bike) {bike_ids.push(bike.id) } )
+        const url = "api/v1/strava/refresh_bikes?bike_ids="+bike_ids;
+        fetch(url, {
+            method: 'POST'
+        }).then(response => {console.log(response)})
+    }
+
 render() {
     const { bikes } = this.state;
 
@@ -64,6 +74,7 @@ render() {
                 <p className="lead text-muted">
                     Here are all of your bikes. Which one.
                 </p>
+                <div> <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button></div>
             </div>
             
             <div>
