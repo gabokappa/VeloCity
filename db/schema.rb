@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_121109) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "strava_gear_id"
     t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 

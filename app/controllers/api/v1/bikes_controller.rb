@@ -1,6 +1,6 @@
 class Api::V1::BikesController < ApplicationController
-  before_action :check_login, only: %i[create index show destroy]
-
+  # before_action :check_login, only: %i[create index show destroy]
+  # TODO Add back in Auth
   def index
     bikes = Bike.where(user_id: params[:user_id])
     bike_parts = []

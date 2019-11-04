@@ -35,22 +35,41 @@ class Api::V1::StravaController < ApplicationController
     bike_ids.each {|bike_id|
       bikes.push(get_bike(bike_id))
     }
+    update_bike_database(bikes)
     render json: { new_bikes: bikes }
   end
 
   # Calls Strava and refreshes bike milage with results
   def refresh_bikes
+    p params
     bike_ids = params["bike_ids"].split(',')
     bike_ids.each {|bike_id|
-      bike = get_bike(bike_id)
-      # TODO add strava bike id to table
-      # Bike.find_by(strava_id: bike_id)
-      Bike.find_by(id: '1')
-      Bike.update(distance_done: bike["distance"])
+      strava_bike = get_bike(bike_id)
+      p strava_bike
+      # TODO add strava bike id to table DONE?
+      # Bike.find_by(strava_id: bike_id) DONE?
+      bike = Bike.find_by(strava_gear_id: bike_id)
+      bike.update(distance_done: strava_bike["distance"])
     }
   end
 
   private
+
+  def update_bike_database(bikes)
+    # TODO Hard Coded user ID
+    logged_bikes = Bike.where(user_id: '1')
+    logged_bike_ids = []
+    logged_bikes.each do |logged_bike_obj|
+      logged_bike_ids.push(logged_bike_obj["strava_gear_id"])
+    end
+
+    # TODO Hard Coded user ID
+    bikes.each do |strava_bike|
+      if logged_bike_ids.include?(strava_bike["id"]) == false
+        Bike.create(bike_name: strava_bike["name"], distance_done: strava_bike["distance"], user_id: "1", strava_gear_id: strava_bike["id"])
+      end
+    end
+  end
 
   # Gets a unique list of bike ID's
   def get_bike_ids()
@@ -89,5 +108,5 @@ class Api::V1::StravaController < ApplicationController
     json = JSON.parse(response)
     # TODO - hardcoded user ID
     user.update(access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
-  end 
+  end
 end
