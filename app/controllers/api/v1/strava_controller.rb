@@ -84,6 +84,7 @@ class Api::V1::StravaController < ApplicationController
         bike_ids.push(activity["gear_id"])
       end }
     bike_ids.uniq!
+    bike_ids
   end
 
   # Gets the name and milage for a specific bike

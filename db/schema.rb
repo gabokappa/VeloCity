@@ -39,16 +39,17 @@ ActiveRecord::Schema.define(version: 2019_11_04_121109) do
     t.string "first_name"
     t.string "sur_name"
     t.string "username"
-    t.string "email"
-    t.string "password_digest"
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.integer "strava_id"
     t.string "access_token"
     t.datetime "access_token_expiry"
     t.string "refresh_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "bikes", "users"
-  add_foreign_key "components", "bikes"
+  add_foreign_key "bikes", "users", on_delete: :cascade
+  add_foreign_key "components", "bikes", on_delete: :cascade
 end
