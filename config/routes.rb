@@ -23,6 +23,14 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      get 'signup/index'
+      get 'signup/create'
+      get 'signup/show'
+      post 'signup/login_check'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'components/index'
       get 'components/create'
       get 'components/show'
