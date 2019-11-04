@@ -23,27 +23,88 @@ class FormContainer extends React.Component {
         this.handleClearForm = this.handleClearForm.bind(this);
         this.handleFullName = this.handleFullName.bind(this)
     }
-    handleFormSubmit() {
-        // TODO: Add submision logic here
+    handleFormSubmit(e) {
+       e.preventDefault();
+       let userData = this.state.newUser;
+       // TODO: Change the below call to work with the API
+        fetch("http://example.com", {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            response.json().then(data => {
+                console.log("Successful" + data);
+            });
+        });
     }
 
-    handleClearForm() {
-        // Logic for resetting the form
     }
 
-    handleFullName(e) {
-        let value = e.target.value;
-        this.setState( prevState => ({ newUser :
-                {...prevState.newUser, name: value
-                }
-        }))
-    }
+    handleClearForm(e) {
+    e.preventDefault();
+    this.setState({
+        newUser: {
+            name: "",
+            age: "",
+            gender: "",
+            skills: [],
+            about: ""
+        }
+    });
+}
+
+handleFullName(e) {
+    let value = e.target.value;
+    this.setState(
+        prevState => ({
+            newUser: {
+                ...prevState.newUser,
+                name: value
+            }
+        }),
+        () => console.log(this.state.newUser)
+    );
+}
+
+handleInput(e) {
+    let value = e.target.value;
+    let name = e.target.name;
+    this.setState(
+        prevState => ({
+            newUser: {
+                ...prevState.newUser,
+                [name]: value
+            }
+        }),
+        () => console.log(this.state.newUser)
+    );
+}
+
 
     render() {
         return (
-            <form className="container" onSubmit={this.handleFormSubmit}>
-                <Input /> {/* First Name */}
-                <Input /> {/*Sur Name*/}
+            <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+                <Input
+                inputType={"text"}
+                title={"First Name"}
+                name={"first_name"}
+                value={this.state.newUser.first_name}
+                placeholder={"Enter your name"}
+                handleChange={this.handleInput}
+                /> {" "}
+                {/* First Name */}
+                <Input
+                inputType={"Sur Name"}
+                title={"Sur Name"}
+                name={"sur_name"}
+                value={this.state.newUser.sur_name}
+                placeholder={"Enter your surname"}
+                handleChange={this.handleInput}
+                />{" "}
+                {/*Sur Name*/}
                 <Input /> {/*Email*/}
                 <Input /> {/*Password*/}
                 <Button /> { /*Submit */}
@@ -52,4 +113,9 @@ class FormContainer extends React.Component {
         );
     }
 }
+
+const buttonStyle = {
+    margin: "10px 10px 10px 10px"
+};
+
 export default FormContainer;
