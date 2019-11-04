@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get 'signup/index'
       get 'signup/create'
       get 'signup/show'
+      post 'signup/login_check'
     end
   end
   namespace :api do

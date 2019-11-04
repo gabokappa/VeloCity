@@ -1,4 +1,5 @@
 class Api::V1::SignupController < ApplicationController
+  protect_from_forgery with: :null_session
   def index
   end
 
@@ -7,4 +8,11 @@ class Api::V1::SignupController < ApplicationController
 
   def show
   end
+
+  def login_check
+    p 'THis has been called'
+    p params["email"]
+
+  end
+
 end

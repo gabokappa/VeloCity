@@ -24,9 +24,9 @@ class FormContainer extends React.Component {
         this.handleFullName = this.handleFullName.bind(this)
     }
     handleFormSubmit(e) {
-       e.preventDefault();
-       let userData = this.state.newUser;
-       // TODO: Change the below call to work with the API
+        e.preventDefault();
+        let userData = this.state.newUser;
+        // TODO: Change the below call to work with the API
         fetch("http://example.com", {
             method: "POST",
             body: JSON.stringify(userData),
