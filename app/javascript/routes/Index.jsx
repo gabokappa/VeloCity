@@ -4,6 +4,7 @@ import StravaAuth from '../components/StravaAuth';
 import Heading from '../components/Heading';
 import User from '../components/User';
 import Bikes from '../components/Bikes';
+import Signup from '../components/Signup';
 
 export default (
     <Router>
@@ -12,6 +13,7 @@ export default (
         <Route exact path="/" component={StravaAuth} />
         <Route exact path="/user" component={User} />
         <Route exact path="/bikes" component={Bikes} />
+        <Route exact path="/signup" component={Signup} />
         </Switch>
     </Router>
 );
