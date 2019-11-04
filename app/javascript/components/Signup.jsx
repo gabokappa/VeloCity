@@ -23,8 +23,19 @@ class Signup extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.first_name);
-        event.preventDefault();
+      event.preventDefault();
+      console.log("HELLO IM IN THE HANDLE SUBMIT");
+      let userData = this.state;
+      console.log(userData);
+      const url = "api/v1/signup/login_check";
+      fetch(url, {
+          method: "POST",
+          body: JSON.stringify(userData),
+          headers: {
+              'Accept': "application/json",
+              "Content-Type": "application/json"
+          }
+      }).then(response => {console.log(response)})
     }
 
     render() {
