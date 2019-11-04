@@ -9,8 +9,8 @@ import Bikes from './Bikes';
 
 configure({ adapter: new Adapter() });
 
-// describe('Testing the Bike component', () => {
-//   it('renders without crashing', () => {
-//     shallow(<Bikes />);
-//   })
-// });
+xdescribe('Testing the Bike component', () => {
+  it('renders without crashing', () => {
+    shallow(<Bikes />);
+  })
+});

@@ -11,16 +11,18 @@ RSpec.describe Api::V1::UsersController, type: :request do
     end
 
     it 'returns a JSON' do
+      user1 = FactoryBot.create(:user)
       get '/api/v1/users/index/'
       json = JSON.parse(response.body)
-      expect(json.length).to eq(User.count)
-      expect(User.all.first).to have_attributes id: (a_value > 0)
+      expect(json.length).to eq(1)
+      expect(User.all.first).to have_attributes id: (a_value == user1.id)
     end
 
-    it 'first user has an id of 1' do
+    it 'JSON object has a specific attribute' do
+      FactoryBot.create(:user)
       get '/api/v1/users/index/'
       json = JSON.parse(response.body)
-      expect(json.first['id']).to eq(1)
+      expect(json.first['first_name']).to eq('Joe')
     end
   end
 end
