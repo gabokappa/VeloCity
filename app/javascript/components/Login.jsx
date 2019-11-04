@@ -27,12 +27,13 @@ class Login extends React.Component {
         let userData = this.state;
         console.log(userData);
         const body_test = JSON.stringify({"user": {
-                "email": "gg@test.com",
-                "password": "12345678"
+                "email": "james_holton@yahoo.co.uk",
+                "password": "1"
             }
         })
         console.log(body_test);
         const url = "api/v1/tokens";
+        let textStuff = ""
         fetch(url, {
             method: "POST",
             body: body_test,
@@ -40,8 +41,8 @@ class Login extends React.Component {
                 'Accept': "application/json",
                 "Content-Type": "application/json"
             }
-        }).then(response => this.setState({ token: response.token}))
-
+        }).then(response => response.text())
+          .then(json => {console.log(json)});
     }
 
     render() {
