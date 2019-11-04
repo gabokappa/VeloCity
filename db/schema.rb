@@ -48,6 +48,6 @@ ActiveRecord::Schema.define(version: 2019_10_30_174706) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bikes", "users"
-  add_foreign_key "components", "bikes"
+  add_foreign_key "bikes", "users", on_delete: :cascade
+  add_foreign_key "components", "bikes", on_delete: :cascade
 end

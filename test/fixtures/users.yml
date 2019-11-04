@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   first_name: MyString
   sur_name: MyString
   username: MyString
@@ -12,6 +13,7 @@ one:
   refresh_token: MyString
 
 two:
+  id: 2
   first_name: MyString
   sur_name: MyString
   username: MyString
