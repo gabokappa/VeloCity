@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Signup extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Signup extends React.Component {
       console.log("HELLO IM IN THE HANDLE SUBMIT");
       let userData = this.state;
       console.log(userData);
-      const url = "api/v1/signup/login_check";
+      const url = "api/v1/signup/create";
       fetch(url, {
           method: "POST",
           body: JSON.stringify(userData),
@@ -35,7 +36,7 @@ class Signup extends React.Component {
               'Accept': "application/json",
               "Content-Type": "application/json"
           }
-      }).then(response => {console.log(response)})
+      }).then(response =>  {<Redirect to='/login' />})
     }
 
     render() {
