@@ -3,7 +3,7 @@ class CreateBikes < ActiveRecord::Migration[6.0]
     create_table :bikes do |t|
       t.string :bike_name
       t.integer :distance_done
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: {on_delete: :cascade}
 
       t.timestamps
     end

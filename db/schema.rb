@@ -49,6 +49,6 @@ ActiveRecord::Schema.define(version: 2019_10_30_174706) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "bikes", "users"
-  add_foreign_key "components", "bikes"
+  add_foreign_key "bikes", "users", on_delete: :cascade
+  add_foreign_key "components", "bikes", on_delete: :cascade
 end
