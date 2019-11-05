@@ -40,8 +40,7 @@ componentDidMount() {
                 alert("You must be logged in")
                 this.props.history.push('/login');
             }
-        })
-        this.setState({refresh: true});
+        }).then(reload => window.location.reload())
     }
 
 render() {
