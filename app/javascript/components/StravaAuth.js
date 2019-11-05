@@ -12,7 +12,7 @@ class StravaAuth extends Component {
   };
   }
 
-  getBikes = () => { 
+  getBikes = () => {
       const url = "api/v1/strava/find_bikes?user_id="+ls.get("user_id");
       fetch(url, {
         method: 'GET',
@@ -28,21 +28,8 @@ class StravaAuth extends Component {
           .then(response => this.setState({ newBikes: response.new_bikes}))
   }
 
-  refreshBikes = () => {
-    var bike_ids = [];
-    this.state.newBikes.forEach(function(bike) {bike_ids.push(bike.id) } )
-    const url = "api/v1/strava/refresh_bikes?bike_ids="+bike_ids;
-    fetch(url, {
-      method: 'POST'
-    }).then(response => {console.log(response)})
-  }
-
   viewBikes = () => {
     this.props.history.push('/bikes');
-  }
-
-  componentDidMount(){
-    return "Hello"
   }
 
   render() {
@@ -54,8 +41,6 @@ class StravaAuth extends Component {
           <button className="btn btn-primary btn-lg" onClick={this.viewBikes}>Click here to view your Bikes</button>
           <br/>
           <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
-          <br/>
-          <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
         </div>
       </div>
     )

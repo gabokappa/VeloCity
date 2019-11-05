@@ -10,7 +10,6 @@ class Api::V1::BikesController < ApplicationController
   def create; end
 
   def show
-    p "I'm being called"
     bike = Bike.find(params[:bike_id])
     components = Component.where(bike_id: bike.id)
     render json: { bike: bike, components: components }

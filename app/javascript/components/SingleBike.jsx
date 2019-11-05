@@ -48,14 +48,12 @@ componentDidMount() {
                 height="300" width="400"
               />
               <div><AddParts bike={bikeAndParts.bike} /></div>
-
+            <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="overlay bg-dark position-absolute">
               <h1 className="display-4 position-relative text-white">
                 {bikeAndParts.bike.bike_name}
               </h1>
             </div>
-
-            <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="container py-5">
               <div className="row">
                 <div className="col-sm-12 col-lg-3">
