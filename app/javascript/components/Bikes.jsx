@@ -10,16 +10,16 @@ class Bikes extends React.Component {
         };
     }
 
-componentDidMount() {
-    const url = "api/v1/bikes/index?user_id=1";
-    fetch(url)
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error("Network response was not ok.");
-        })
-        .then(response => this.setState({ bikes: response }))
+// componentDidMount() {
+//     const url = "api/v1/bikes/index?user_id=1";
+//     fetch(url)
+//         .then(response => {
+//             if (response.ok) {
+//                 return response.json();
+//             }
+//             throw new Error("Network response was not ok.");
+//         })
+//         .then(response => this.setState({ bikes: response }))
         // .catch(() => this.props.history.push("/"));
 }
 
@@ -41,7 +41,7 @@ render() {
                         return <li><BikePart part={part} /></li>
                         })}
                     </ul>
-                
+
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
@@ -65,7 +65,7 @@ render() {
                     Here are all of your bikes. Which one.
                 </p>
             </div>
-            
+
             <div>
                 <main className="container">
                     <div className="row">
