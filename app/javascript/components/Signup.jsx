@@ -19,7 +19,7 @@ class Signup extends React.Component {
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-        const value = target.value
+        const value = target.value;
         this.setState({[name]: value});
     }
 
@@ -36,7 +36,15 @@ class Signup extends React.Component {
               'Accept': "application/json",
               "Content-Type": "application/json"
           }
-      }).then(response =>  {<Redirect to='/login' />})
+      }).then(response => {
+          if (response.ok) {
+              return response.json();
+          }
+          throw new Error("Network response was not ok.");
+      })
+          .then(() => {
+              this.props.history.push("/login")
+          })
     }
 
     render() {
