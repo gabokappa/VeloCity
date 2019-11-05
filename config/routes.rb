@@ -17,8 +17,17 @@ Rails.application.routes.draw do
       get 'strava/show'
       get 'strava/destroy'
       get 'strava/authorize'
+      get 'strava/authorize/:user_id', to: 'strava#authorize'
       get 'strava/find_bikes'
       post 'strava/refresh_bikes'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
+      get 'signup/index'
+      post 'signup/create'
+      get 'signup/show'
+      post 'signup/login_check'
     end
   end
   namespace :api do

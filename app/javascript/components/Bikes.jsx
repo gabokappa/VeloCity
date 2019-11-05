@@ -1,27 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from './BikePart';
+import ls from 'local-storage'
 
 class Bikes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bikes: []
+            bikes: [],
+            refresh: false
         };
     }
 
 componentDidMount() {
-    const url = "api/v1/bikes/index?user_id=1";
-    fetch(url)
-        .then(response => {
+    const url = "api/v1/bikes/index?user_id="+ls.get('user_id')
+    fetch(url, {
+        method: 'GET',
+        headers: {"Authorization": ls.get('authorization')}
+        }).then(response => {
             if (response.ok) {
                 return response.json();
             }
-            throw new Error("Network response was not ok.");
+            alert("You must be logged in")
+            this.props.history.push('/login');
         })
         .then(response => this.setState({ bikes: response }))
         .catch((err) => console.log(err));
 }
+
+    refreshBikes = () => {
+        var bike_ids = [];
+        console.log(this.state.bikes);
+        this.state.bikes.forEach(function(bike) {bike_ids.push(bike[0].strava_gear_id) } )
+        const url = "api/v1/strava/refresh_bikes?bike_ids="+bike_ids+"&user_id="+ls.get("user_id");
+        fetch(url, {
+            method: 'POST',
+            headers: {"Authorization": ls.get('authorization')}
+        }).then(response => {
+            if (!response.ok) {
+                alert("You must be logged in")
+                this.props.history.push('/login');
+            }
+        }).then(reload => window.location.reload())
+    }
+    // TODO - should really be refreshing the component, not the whole page
 
 render() {
     const { bikes } = this.state;
@@ -64,6 +86,7 @@ render() {
                 <p className="lead text-muted">
                     Here are all of your bikes. Which one.
                 </p>
+                <div> <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button></div>
             </div>
 
             <div>
