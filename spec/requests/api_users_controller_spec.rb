@@ -12,7 +12,8 @@ RSpec.describe Api::V1::UsersController, type: :request do
 
     it 'returns a JSON' do
       user1 = FactoryBot.create(:user)
-      get '/api/v1/users/index/'
+
+      get "/api/v1/users/#{user1.id}/"
       json = JSON.parse(response.body)
       expect(json.length).to eq(1)
       expect(User.all.first).to have_attributes id: (a_value == user1.id)

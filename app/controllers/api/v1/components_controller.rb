@@ -4,7 +4,16 @@ class Api::V1::ComponentsController < ApplicationController
     render json: components
   end
 
-  def create; end
+  def create
+    @part = Component.create(comp_name: params['comp_name'], distance_done: params['distance_done'],
+                             max_distance: params['max_distance'], bike_id: params['bike_id'], start_distance: params['start_distance'])
+    if @part.save
+      render json: @part, status: :created
+    else
+      render json: @part.errors, status: :unprocessable_entity
+    end
+
+  end
 
   def show
     components = Component.where("bike_id = #{params[:bike_id]}")
