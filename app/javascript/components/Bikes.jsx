@@ -25,6 +25,7 @@ componentDidMount() {
             this.props.history.push('/login');
         })
         .then(response => this.setState({ bikes: response }))
+        .catch((err) => console.log(err));
 }
 
     refreshBikes = () => {
@@ -58,11 +59,11 @@ render() {
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
                     <ul>
-                        {bikeAndParts[1].map((part) => {
-                        return <li><BikePart part={part} /></li>
+                        {bikeAndParts[1].map((part, index) => {
+                        return <li key={index}><BikePart part={part} /></li>
                         })}
                     </ul>
-                
+
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
@@ -87,7 +88,7 @@ render() {
                 </p>
                 <div> <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button></div>
             </div>
-            
+
             <div>
                 <main className="container">
                     <div className="row">

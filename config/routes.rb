@@ -43,8 +43,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'bikes/index'
       get 'bikes/create'
-      get 'bikes/show'
-      post 'bikes/show/:id', to: 'bikes#show'
+      get 'bikes/show', to: 'bikes#show'
+      get 'bikes/show/:id', to: 'bikes#destroy'
       # modified the route above to see if tested well.
       get 'bikes/destroy'
     end
