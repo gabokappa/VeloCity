@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_120237) do
+ActiveRecord::Schema.define(version: 2019_11_05_113210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_120237) do
     t.bigint "bike_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "start_distance"
     t.index ["bike_id"], name: "index_components_on_bike_id"
   end
 

@@ -18,6 +18,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    @user = User.all
     render json: @user, status: :ok
   end
 
