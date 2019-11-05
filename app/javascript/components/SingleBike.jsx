@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from "./BikePart";
+import ls from 'local-storage'
 
 class SingleBike extends React.Component {
   constructor(props) {
@@ -11,8 +12,10 @@ class SingleBike extends React.Component {
 componentDidMount() {
   const url = `/api/v1/bikes/show?bike_id=${window.location.href.split("bike/")[1]}`;
 
-  fetch(url)
-  .then(response => {
+  fetch(url, {
+    method: 'GET',
+    headers: {"Authorization": ls.get('authorization')}
+  }).then(response => {
     if (response.ok) {
       return response.text();
     }
@@ -38,16 +41,17 @@ componentDidMount() {
 
         return (
           <div>
-            <div className="hero position-relative d-flex align-items-center justify-content-center">
               <img
                 src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
-                className="img-fluid position-absolute"
+                className="img-fluid"
+                height="300" width="400"
               />
-              <div className="overlay bg-dark position-absolute" />
+            <div className="overlay bg-dark position-absolute">
               <h1 className="display-4 position-relative text-white">
-                {bikeAndParts.bike.name}
+                {bikeAndParts.bike.bike_name}
               </h1>
             </div>
+            <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="container py-5">
               <div className="row">
                 <div className="col-sm-12 col-lg-3">
@@ -56,12 +60,9 @@ componentDidMount() {
                     {componentList}
                   </ul>
                 </div>
-              <Link to="/bikes" className="btn btn-link">
-                Back to all bikes
-              </Link>
+              </div>
             </div>
           </div>
-        </div>
         )
       }
       else {
