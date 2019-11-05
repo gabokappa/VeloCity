@@ -6,34 +6,20 @@ class Heading extends Component {
   constructor(props) {
     super(props);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.state = {isLoggedIn: false}
-  }
-
-  handleLoginClick() {
-    this.setState({isLoggedIn: true})
   }
 
   handleLogoutClick() {
     ls.remove('authorization')
     ls.remove('user_id')
-    this.setState({isLoggedIn: false})
   }
 
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    let button;
-
-    if (isLoggedIn) {
-      button = <Link to="/login" className="btn btn-link" onClick={this.handleLogoutClick}>Logout</Link>
-    } else {
-      button = <Link to="/login" className="btn btn-link" onClick={this.handleLoginClick}>Login</Link>
-    }
-
     return (
       <div className="jumbotron  p-1">
         <Link to="/" className="btn btn-link">Home</Link>
-        {button}
+        <Link to="/signup" className="btn btn-link">Sign Up</Link>
+        <Link to="/login" className="btn btn-link">Login</Link>
+        <Link to="/" className="btn btn-link" onClick={this.handleLogoutClick}>Logout</Link>
         <h1 className="display-1 text-center">
           <img className="img-thumbnail" src='https://myext.info/image/icon_large/kdemfmhkoncmbcphejembfngiihppkei.jpg'/>
           VeloCity Application
