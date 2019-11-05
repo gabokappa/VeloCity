@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Signup extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Signup extends React.Component {
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-        const value = target.value
+        const value = target.value;
         this.setState({[name]: value});
     }
 
@@ -27,7 +28,7 @@ class Signup extends React.Component {
       console.log("HELLO IM IN THE HANDLE SUBMIT");
       let userData = this.state;
       console.log(userData);
-      const url = "api/v1/signup/login_check";
+      const url = "api/v1/signup/create";
       fetch(url, {
           method: "POST",
           body: JSON.stringify(userData),
@@ -35,7 +36,15 @@ class Signup extends React.Component {
               'Accept': "application/json",
               "Content-Type": "application/json"
           }
-      }).then(response => {console.log(response)})
+      }).then(response => {
+          if (response.ok) {
+              return response.json();
+          }
+          throw new Error("Network response was not ok.");
+      })
+          .then(() => {
+              this.props.history.push("/login")
+          })
     }
 
     render() {
