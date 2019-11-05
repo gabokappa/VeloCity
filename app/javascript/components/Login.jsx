@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ls from 'local-storage';
 
 class Login extends React.Component {
     constructor(props) {
@@ -23,15 +24,12 @@ class Login extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log("HELLO IM IN THE HANDLE SUBMIT");
         let userData = this.state;
-        console.log(userData);
         const body_test = JSON.stringify({"user": {
-                "email": "james_holton@yahoo.co.uk",
-                "password": "1"
+                "email": userData.email,
+                "password": userData.password
             }
         })
-        console.log(body_test);
         const url = "api/v1/tokens";
         let textStuff = ""
         fetch(url, {
@@ -42,7 +40,12 @@ class Login extends React.Component {
                 "Content-Type": "application/json"
             }
         }).then(response => response.text())
-          .then(json => {console.log(json)});
+          .then(json => {
+                ls.set('authorization', JSON.parse(json).token)
+                ls.set('user_id', JSON.parse(json).user_id)
+          });
+        
+        this.props.history.push('/');
     }
 
     render() {
@@ -67,7 +70,6 @@ class Login extends React.Component {
                 </label>
                 <br />
                 <input type="submit" value="Submit" />
-                <h1>{this.state.token}</h1>
             </form>
         );
     }
