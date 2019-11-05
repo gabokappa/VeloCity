@@ -24,15 +24,12 @@ class Login extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log("HELLO IM IN THE HANDLE SUBMIT");
         let userData = this.state;
-        console.log(userData);
         const body_test = JSON.stringify({"user": {
-                "email": "james_holton@yahoo.co.uk",
-                "password": "1"
+                "email": userData.email,
+                "password": userData.password
             }
         })
-        console.log(body_test);
         const url = "api/v1/tokens";
         let textStuff = ""
         fetch(url, {
