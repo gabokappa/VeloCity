@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# RSpec.describe Api::V1::StravaController, type: request do
+# RSpec.describe Api::V1::StravaController, type: :request do
 #   describe 'GET /strava/authorize' do
 #     it 'authorize responds with 200' do
 #       get '/api/v1/strava/authorize'
