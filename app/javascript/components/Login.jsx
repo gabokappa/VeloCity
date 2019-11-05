@@ -50,11 +50,12 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form className="container py-1" onSubmit={this.handleSubmit}>
+            <form className="form-group ml-5 px-2"onSubmit={this.handleSubmit}>
+                <div className="form-group">
                 <label>
                     Email:
-                    <input
-                        type="text"
+                    <input className="form-control"
+                        type="email"
                         name="email"
                         value={this.state.email}
                         onChange={this.handleChange} />
@@ -62,14 +63,15 @@ class Login extends React.Component {
                 <br />
                 <label>
                     Password:
-                    <input
-                        type="text"
+                    <input className="form-control"
+                        type="password"
                         name="password"
                         value={this.state.password}
                         onChange={this.handleChange} />
                 </label>
                 <br />
-                <input type="submit" value="Submit" />
+                </div>
+                <input className="btn btn-primary" type="submit" value="Submit" />
             </form>
         );
     }
