@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ls from 'local-storage'
 
 class Login extends React.Component {
     constructor(props) {
@@ -42,7 +43,10 @@ class Login extends React.Component {
                 "Content-Type": "application/json"
             }
         }).then(response => response.text())
-          .then(json => {console.log(json)});
+          .then(json => {
+                ls.set('authorization', JSON.parse(json).token)
+                ls.set('user_id', JSON.parse(json).user_id)
+          });
     }
 
     render() {
