@@ -3,7 +3,7 @@
 class Api::V1::StravaController < ApplicationController
   # TODO need to check this line isn't dangerous.  Fixed it falling over with
   # "Can't verify CSRF token authenticity." Error
-  before_action :check_login, only: %i[authorize find_bikes refresh_bikes]
+  before_action :check_login, only: %i[find_bikes refresh_bikes]
   protect_from_forgery with: :null_session
 
   def index
@@ -23,32 +23,30 @@ class Api::V1::StravaController < ApplicationController
   def authorize
     response = RestClient.post 'https://www.strava.com/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', code: params["code"], grant_type: 'authorization_code' }
     json = JSON.parse(response)
-    # TODO - hardcoded user ID
-    user = User.find_by(id: '1')
+    user = User.find_by(id: params["user_id"])
     user.update(strava_id: json['athlete']['id'], access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
     redirect_to root_url
   end
 
   # Called to find all bikes used in the last period of time
   def find_bikes
-    bike_ids = get_bike_ids()
+    user_id = params["user_id"]
+    bike_ids = get_bike_ids(user_id)
     bikes = []
     bike_ids.each {|bike_id|
-      bikes.push(get_bike(bike_id))
+      bikes.push(get_bike(bike_id, user_id))
     }
-    update_bike_database(bikes)
+    update_bike_database(bikes, user_id)
     render json: { new_bikes: bikes }
   end
 
   # Calls Strava and refreshes bike milage with results
   def refresh_bikes
-    p params
     bike_ids = params["bike_ids"].split(',')
+    user_id = params["user_id"]
+
     bike_ids.each {|bike_id|
-      strava_bike = get_bike(bike_id)
-      p strava_bike
-      # TODO add strava bike id to table DONE?
-      # Bike.find_by(strava_id: bike_id) DONE?
+      strava_bike = get_bike(bike_id, user_id)
       bike = Bike.find_by(strava_gear_id: bike_id)
       bike.update(distance_done: strava_bike["distance"])
     }
@@ -56,26 +54,23 @@ class Api::V1::StravaController < ApplicationController
 
   private
 
-  def update_bike_database(bikes)
-    # TODO Hard Coded user ID
-    logged_bikes = Bike.where(user_id: '1')
+  def update_bike_database(bikes, user_id)
+    logged_bikes = Bike.where(user_id: user_id)
     logged_bike_ids = []
     logged_bikes.each do |logged_bike_obj|
       logged_bike_ids.push(logged_bike_obj["strava_gear_id"])
     end
 
-    # TODO Hard Coded user ID
     bikes.each do |strava_bike|
       if logged_bike_ids.include?(strava_bike["id"]) == false
-        Bike.create(bike_name: strava_bike["name"], distance_done: strava_bike["distance"], user_id: "1", strava_gear_id: strava_bike["id"])
+        Bike.create(bike_name: strava_bike["name"], distance_done: strava_bike["distance"], user_id: user_id, strava_gear_id: strava_bike["id"])
       end
     end
   end
 
   # Gets a unique list of bike ID's
-  def get_bike_ids()
-    # TODO - hardcoded user ID
-    user = User.find_by(id: '1')
+  def get_bike_ids(user_id)
+    user = User.find_by(id: user_id)
     authorize_time_check(user)
     response = RestClient.get('https://www.strava.com/api/v3/athlete/activities?per_page=200', {Authorization: 'Bearer ' + user.access_token})
     json = JSON.parse(response)
@@ -89,9 +84,8 @@ class Api::V1::StravaController < ApplicationController
   end
 
   # Gets the name and milage for a specific bike
-  def get_bike(bikeID)
-    # TODO - hardcoded user ID
-    user = User.find_by(id: '1')
+  def get_bike(bikeID, userID)
+    user = User.find_by(id: userID)
     authorize_time_check(user)
     response = RestClient.get('https://www.strava.com/api/v3/gear/'+bikeID, {Authorization: 'Bearer ' + user.access_token})
     bike = JSON.parse(response)
@@ -99,6 +93,7 @@ class Api::V1::StravaController < ApplicationController
 
   # Checks that the users authorisation code hasn't expired
   def authorize_time_check(user)
+
     if (user.access_token_expiry < Time.now)
       refresh_authorisation(user)
     end
@@ -108,7 +103,6 @@ class Api::V1::StravaController < ApplicationController
   def refresh_authorisation(user)
     response = RestClient.post 'https://www.strava.com/api/v3/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', grant_type: 'refresh_token', refresh_token: user.refresh_token }
     json = JSON.parse(response)
-    # TODO - hardcoded user ID
     user.update(access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
   end
 end

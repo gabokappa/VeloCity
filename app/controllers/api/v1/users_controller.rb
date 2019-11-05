@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-  # before_action :set_user, only: %i[show update destroy]
-  # before_action :check_owner, only: %i[show update destroy]
+  before_action :set_user, only: %i[show update destroy]
+  before_action :check_owner, only: %i[show update destroy]
   # TODO add back in User Authorisation line
   def index
     users = User.all.order(created_at: :desc)

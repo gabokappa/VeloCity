@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ls from 'local-storage'
+import ls from 'local-storage';
 
 class Login extends React.Component {
     constructor(props) {

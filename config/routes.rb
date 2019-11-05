@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'strava/show'
       get 'strava/destroy'
       get 'strava/authorize'
+      get 'strava/authorize/:user_id', to: 'strava#authorize'
       get 'strava/find_bikes'
       post 'strava/refresh_bikes'
     end
