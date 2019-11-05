@@ -10,17 +10,17 @@ class Bikes extends React.Component {
         };
     }
 
-// componentDidMount() {
-//     const url = "api/v1/bikes/index?user_id=1";
-//     fetch(url)
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.json();
-//             }
-//             throw new Error("Network response was not ok.");
-//         })
-//         .then(response => this.setState({ bikes: response }))
-        // .catch(() => this.props.history.push("/"));
+componentDidMount() {
+    const url = "api/v1/bikes/index?user_id=1";
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error("Network response was not ok.");
+        })
+        .then(response => this.setState({ bikes: response }))
+        .catch(() => this.props.history.push("/"));
 }
 
 render() {

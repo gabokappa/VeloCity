@@ -14,7 +14,7 @@ componentDidMount() {
     }
   } = this.props;
 
-  const url = `/api/v1/bike/show/${bike_id}`;
+  const url = `/api/v1/bikes/show/${bike_id}`;
 
   fetch(url)
   .then(response => {
@@ -44,7 +44,7 @@ componentDidMount() {
 
       return (
         console.log("hello2")
-        <div className="">
+        <div>
           <div className="hero position-relative d-flex align-items-center justify-content-center">
             <img
               src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
@@ -71,10 +71,6 @@ componentDidMount() {
       </div>
       )
     }
-
-
-
-
 }
 
 export default SingleBike;
