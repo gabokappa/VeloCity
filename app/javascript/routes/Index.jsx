@@ -10,10 +10,10 @@ export default (
     <Router>
         <Heading />
         <Switch>
-        <Route exact path="/" component={StravaAuth} />
-        <Route exact path="/user" component={User} />
-        <Route exact path="/bikes" component={Bikes} />
-        <Route exact path="/bike/:id" component={SingleBike} />
+          <Route exact path="/" component={StravaAuth} />
+          <Route exact path="/user" component={User} />
+          <Route exact path="/bikes" component={Bikes} />
+          <Route exact path="/bike/:id" component={SingleBike} />
         </Switch>
     </Router>
 );

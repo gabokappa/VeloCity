@@ -20,7 +20,7 @@ componentDidMount() {
             throw new Error("Network response was not ok.");
         })
         .then(response => this.setState({ bikes: response }))
-        .catch(() => this.props.history.push("/"));
+        .catch((err) => console.log(err));
 }
 
 render() {
@@ -37,8 +37,8 @@ render() {
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
                     <ul>
-                        {bikeAndParts[1].map((part) => {
-                        return <li><BikePart part={part} /></li>
+                        {bikeAndParts[1].map((part, index) => {
+                        return <li key={index}><BikePart part={part} /></li>
                         })}
                     </ul>
 

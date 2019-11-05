@@ -11,13 +11,13 @@ class StravaAuth extends Component {
   };
   }
 
-  getBikes = () => { 
+  getBikes = () => {
       const url = "api/v1/strava/find_bikes";
       fetch(url)
           .then(response => {
               if (response.ok) {
                   return response.json();
-                  
+
               }else{
                 throw new Error("Network response was not ok.");
               }
