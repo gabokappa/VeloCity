@@ -1,8 +1,5 @@
 {
   "name": "rails_react_velocity",
-  "engines": {
-    "node": "12.13.0"
-  },
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.6.3",
