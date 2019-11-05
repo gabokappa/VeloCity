@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from './BikePart';
-import ls from 'local-storage'
+import ls from 'local-storage';
 
 class Bikes extends React.Component {
     constructor(props) {
@@ -62,7 +62,7 @@ render() {
                         return <li><BikePart part={part} /></li>
                         })}
                     </ul>
-                
+
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
@@ -87,7 +87,7 @@ render() {
                 </p>
                 <div> <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button></div>
             </div>
-            
+
             <div>
                 <main className="container">
                     <div className="row">

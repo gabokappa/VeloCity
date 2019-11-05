@@ -1,5 +1,4 @@
 
-
 class Api::V1::StravaController < ApplicationController
   # TODO need to check this line isn't dangerous.  Fixed it falling over with
   # "Can't verify CSRF token authenticity." Error
