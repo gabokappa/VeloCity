@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import ls from 'local-storage';
 
-
 class Heading extends Component {
   constructor(props) {
     super(props);
@@ -13,9 +12,6 @@ class Heading extends Component {
 
   handleLoginClick() {
     this.setState({isLoggedIn: true})
-    .then(() => {
-      this.props.history.push("/login")
-    })
   }
 
   handleLogoutClick() {
@@ -29,7 +25,7 @@ class Heading extends Component {
     let button;
 
     if (isLoggedIn) {
-      button = <div> <button className="btn btn-primary btn-lg" onClick={this.handleLogoutClick}>Logout</button></div>
+      button = <Link to="/login" className="btn btn-link" onClick={this.handleLogoutClick}>Logout</Link>
     } else {
       button = <Link to="/login" className="btn btn-link" onClick={this.handleLoginClick}>Login</Link>
     }
