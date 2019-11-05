@@ -44,6 +44,8 @@ class Login extends React.Component {
                 ls.set('authorization', JSON.parse(json).token)
                 ls.set('user_id', JSON.parse(json).user_id)
           });
+        
+        this.props.history.push('/');
     }
 
     render() {
@@ -68,7 +70,6 @@ class Login extends React.Component {
                 </label>
                 <br />
                 <input type="submit" value="Submit" />
-                <h1>{this.state.token}</h1>
             </form>
         );
     }
