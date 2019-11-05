@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from "./BikePart";
 import ls from 'local-storage'
+import AddParts from './AddParts'
 
 class SingleBike extends React.Component {
   constructor(props) {
@@ -46,11 +47,14 @@ componentDidMount() {
                 className="img-fluid"
                 height="300" width="400"
               />
+              <div><AddParts bike={bikeAndParts.bike} /></div>
+
             <div className="overlay bg-dark position-absolute">
               <h1 className="display-4 position-relative text-white">
                 {bikeAndParts.bike.bike_name}
               </h1>
             </div>
+
             <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="container py-5">
               <div className="row">

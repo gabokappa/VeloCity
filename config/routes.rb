@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'components/index'
-      get 'components/create'
+      post 'components/create', to: 'components#create'
       get 'components/show'
       post 'components/show/:bike_id', to: 'components#show'
       get 'components/destroy'
