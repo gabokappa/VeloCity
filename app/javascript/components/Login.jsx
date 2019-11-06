@@ -44,12 +44,15 @@ class Login extends React.Component {
                 ls.set('authorization', JSON.parse(json).token)
                 ls.set('user_id', JSON.parse(json).user_id)
           });
-          
+
         this.props.history.push('/');
     }
 
     render() {
         return (
+          <div>
+
+            <Link to="/signup" className="btn btn-link">New to Velocity? Register here</Link>
             <form className="form-group ml-5 px-2"onSubmit={this.handleSubmit}>
                 <div className="form-group">
                 <label>
@@ -73,6 +76,8 @@ class Login extends React.Component {
                 </div>
                 <input className="btn btn-primary" type="submit" value="Submit" />
             </form>
+          </div>
+
         );
     }
 }
