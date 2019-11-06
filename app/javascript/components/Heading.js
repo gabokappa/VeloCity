@@ -21,8 +21,8 @@ class Heading extends Component {
         <Link to="/login" className="btn btn-link">Login</Link>
         <Link to="/" className="btn btn-link" onClick={this.handleLogoutClick}>Logout</Link>
         <h1 className="display-1 text-center">
-          <img className="img-thumbnail" src='https://myext.info/image/icon_large/kdemfmhkoncmbcphejembfngiihppkei.jpg'/>
-          VeloCity
+          <img className="img-thumbnail" src='/logo.png'/>
+            &nbsp;&nbsp;VeloCity
         </h1>
       </div>
     )
