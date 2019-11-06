@@ -53,3 +53,4 @@ $ rails s
 | PostgreSQL | Database management system | Store app data in database |
 | JQuery | JS library | Add dynamic front-end behaviour |
 
+
