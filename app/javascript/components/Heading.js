@@ -16,7 +16,7 @@ class Heading extends Component {
   render() {
     return (
       <div className="jumbotron  p-1">
-        <Link to="/" className="btn btn-link">Home</Link>
+        <Link to="/bikes" className="btn btn-link">Home</Link>
         <Link to="/signup" className="btn btn-link">Sign Up</Link>
         <Link to="/login" className="btn btn-link">Login</Link>
         <Link to="/" className="btn btn-link" onClick={this.handleLogoutClick}>Logout</Link>
