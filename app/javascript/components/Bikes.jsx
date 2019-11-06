@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from './BikePart';
+import BikePartSummary from './BikePartSummary';
 import ls from 'local-storage';
 
 class Bikes extends React.Component {
@@ -74,15 +75,10 @@ render() {
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
-                    <ul>
-                        {bikeAndParts[1].map((part, index) => {
-                        return <li key={index}><BikePart part={part} /></li>
-                        })}
-                    </ul>
-
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
+                    <div><BikePartSummary bikeAndParts={bikeAndParts} /></div>
                 </div>
             </div>
         </div>
@@ -100,9 +96,8 @@ render() {
                 <p className="lead text-muted">
                     Here are all of your bikes.
                 </p>
-                <div> 
+                <div>
                     <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
-                    &nbsp;
                     <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
                 </div>
             </div>
