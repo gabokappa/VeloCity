@@ -43,6 +43,22 @@ componentDidMount() {
             }
         }).then(reload => window.location.reload())
     }
+
+    getBikes = () => {
+    const url = "api/v1/strava/find_bikes?user_id="+ls.get("user_id");
+    fetch(url, {
+    method: 'GET',
+    headers: {"Authorization": ls.get('authorization')}
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+
+            }else{
+            throw new Error("Network response was not ok.");
+            }
+        })
+        .then(reload => window.location.reload())
+    }
     // TODO - should really be refreshing the component, not the whole page
 
 render() {
@@ -74,9 +90,7 @@ render() {
 
     const noBike = (
         <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
-            <h4>
-                No bikes yet. Why not <Link to="/new_bike">create one</Link>
-            </h4>
+            <br/><h4>You have no Bikes, please click on Get Bikes to retrieve them from Strava</h4>
         </div>
     );
     return (
@@ -84,20 +98,19 @@ render() {
             <div className="container py-1">
                 <h1 className="display-4">Bikes </h1>
                 <p className="lead text-muted">
-                    Here are all of your bikes. Which one.
+                    Here are all of your bikes.
                 </p>
-                <div> <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button></div>
+                <div> 
+                    <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
+                    &nbsp;
+                    <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
+                </div>
             </div>
 
             <div>
                 <main className="container">
                     <div className="row">
                         {bikes.length > 0 ? allBikesAndParts : noBike}
-                    </div>
-                    <div className="text-right mb-3">
-                        <Link to="/bike" className="btn custom-button">
-                            Add New Bike
-                        </Link>
                     </div>
                 </main>
             </div>
