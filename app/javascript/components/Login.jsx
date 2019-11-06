@@ -43,9 +43,9 @@ class Login extends React.Component {
           .then(json => {
                 ls.set('authorization', JSON.parse(json).token)
                 ls.set('user_id', JSON.parse(json).user_id)
-          });
-
-        this.props.history.push('/bikes');
+          })
+          .then(redirect => {this.props.history.push('/bikes')})
+        ;
     }
 
     render() {

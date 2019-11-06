@@ -15,7 +15,7 @@ class Heading extends Component {
 
   render() {
     return (
-      <div className="jumbotron  p-1">
+      <div className="jumbotron  p-1 position-sticky">
         <Link to="/bikes" className="btn btn-link">Home</Link>
         <Link to="/signup" className="btn btn-link">Sign Up</Link>
         <Link to="/login" className="btn btn-link">Login</Link>
