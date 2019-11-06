@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import StravaAuth from './StravaAuth'
 import Signup from './Signup'
+import ls from 'local-storage'
 
 
 class VelocityRegister extends Component {
@@ -12,10 +13,18 @@ class VelocityRegister extends Component {
   }
 
   render() {
+    const user_id = ls.get('user_id')
+    let signup_style = {}
+    let strava_style = {}
+    if(user_id) {
+     signup_style = {display: 'none'}
+    }else {
+     strava_style = {display: 'none'}
+    }
     return (
       <div className="container py-1">
-        <Signup />
-        <StravaAuth />
+      <div style={signup_style}><Signup /></div>
+      <div style={strava_style}><StravaAuth /></div>
       </div>
     )
   }
