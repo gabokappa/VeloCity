@@ -13,13 +13,13 @@ class BikeImage extends Component {
 
     switch (this.props.frame_type) {
       case 1:
-        bike_picture = '/mountain-bike.jpg'
+        bike_picture = '/m-bike.jpg'
       case 2:
-        bike_picture = '/mountain-bike.jpg'
+        bike_picture = '/cross-bike.jpg'
       case 3:
-        bike_picture = '/mountain-bike.jpg'
+        bike_picture = '/road-bike.jpg'
       case 4:
-        bike_picture = '/mountain-bike.jpg'
+        bike_picture = '/tt-bike.jpg'
     }
 
     return (
