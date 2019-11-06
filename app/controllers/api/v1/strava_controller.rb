@@ -62,7 +62,7 @@ class Api::V1::StravaController < ApplicationController
 
     bikes.each do |strava_bike|
       if logged_bike_ids.include?(strava_bike["id"]) == false
-        Bike.create(bike_name: strava_bike["name"], distance_done: strava_bike["distance"], user_id: user_id, strava_gear_id: strava_bike["id"])
+        Bike.create(bike_name: strava_bike["name"], distance_done: strava_bike["distance"], user_id: user_id, strava_gear_id: strava_bike["id"], frame_type: strava_bike["frame_type"])
       end
     end
   end
