@@ -1,6 +1,33 @@
 import React, { Component } from 'react'
+import ls from 'local-storage';
 
 class BikePart extends Component {
+  constructor(props) {
+    super(props);
+    const { part } = props
+    // this.state = {id: ""}
+    this.deletePart = this.deletePart.bind(this);
+  }
+
+    deletePart(event) {
+      if(confirm("Are you sure you wish to delete?") === true) {
+        console.log(this.props.part.id)
+        const url = `api/v1/components/destroy?comp_id=${this.props.part.id}`;
+        fetch(url, {
+          method: 'GET',
+          headers: {"Authorization": ls.get('authorization')}
+            })
+          .then(response => {
+            if (response.ok) {
+                    // return response.json();
+              console.log(response)
+            }else{
+              throw new Error("Network response was not ok.");
+              }
+            })
+            // .then(reload => window.location.reload())
+      }
+    }
 
   render() {
     const { part } = this.props
@@ -8,8 +35,7 @@ class BikePart extends Component {
       return (( part.distance_done / part.max_distance ) * 100).toFixed()
     }
 
-function wornColour(part) {
-      console.log("called")
+    function wornColour(part) {
       if(percentWorn(part) < 75) {
         return {backgroundColor: "green"}
       }
@@ -21,13 +47,20 @@ function wornColour(part) {
     };
   };
 
-    return (
-      <div style={wornColour(part)}>Component: {part.comp_name} <br/>
-      Distance done:{part.distance_done}m <br/>
-      Recommended maximum: {part.max_distance}m <br/>
-      Percentage worn: { percentWorn(part) }%</div>
-    )
-  }
+  return (
+    <div><div style={wornColour(part)}>Component: {part.comp_name} <br/>
+    Distance done:{part.distance_done}m <br/>
+    Recommended maximum: {part.max_distance}m <br/>
+    Percentage worn: { percentWorn(part) }%</div>
+    <div><button onClick={this.deletePart}>Delete</button></div>
+
+
+
+
+
+
+    </div>
+  )};
 }
 
 export default BikePart
