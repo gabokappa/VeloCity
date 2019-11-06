@@ -10,17 +10,22 @@ class BikeImage extends Component {
 
   render() {
     let bike_picture = ""
-
     switch (this.props.frame_type) {
       case 1:
         bike_picture = '/m-bike.jpg'
+        break;
       case 2:
         bike_picture = '/cross-bike.jpg'
+        break;
       case 3:
         bike_picture = '/road-bike.jpg'
+        break;
       case 4:
         bike_picture = '/tt-bike.jpg'
+        break;
     }
+
+    console.log(bike_picture)
 
     return (
       <div>
