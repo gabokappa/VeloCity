@@ -96,6 +96,7 @@ render() {
                 </p>
                 <div>
                     <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
+                    &nbsp;
                     <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
                 </div>
             </div>

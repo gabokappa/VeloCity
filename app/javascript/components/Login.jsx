@@ -22,6 +22,13 @@ class Login extends React.Component {
         this.setState({[name]: value});
     }
 
+    handleErrors(response) {
+      if (!response.ok) {
+        alert("Your login details are incorrect, please try again.");
+      }
+      return response;
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         let userData = this.state;
@@ -39,7 +46,8 @@ class Login extends React.Component {
                 'Accept': "application/json",
                 "Content-Type": "application/json"
             }
-        }).then(response => response.text())
+        }).then(this.handleErrors)
+          .then(response => response.text())
           .then(json => {
                 ls.set('authorization', JSON.parse(json).token)
                 ls.set('user_id', JSON.parse(json).user_id)
