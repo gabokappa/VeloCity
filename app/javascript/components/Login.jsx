@@ -45,7 +45,7 @@ class Login extends React.Component {
                 ls.set('user_id', JSON.parse(json).user_id)
           });
 
-        this.props.history.push('/');
+        this.props.history.push('/bikes');
     }
 
     render() {
