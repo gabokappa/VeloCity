@@ -51,8 +51,7 @@ class Login extends React.Component {
     render() {
         return (
           <div>
-
-            <Link to="/signup" className="btn btn-link">New to Velocity? Register here</Link>
+          <Link to="/signup" className="btn btn-link">New to Velocity? Register here</Link>
             <form className="form-group ml-5 px-2"onSubmit={this.handleSubmit}>
                 <div className="form-group">
                 <label>

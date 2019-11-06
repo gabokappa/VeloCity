@@ -50,6 +50,7 @@ class Signup extends React.Component {
     render() {
         return (
             <form className="form-group ml-5 px-2" onSubmit={this.handleSubmit}>
+                <h2>Step 1/2 - Register for Velocity</h2>
                 <div className="form-group">
                     <label> First name:
                         <input className="form-control"
