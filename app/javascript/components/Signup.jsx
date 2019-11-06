@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import ls from 'local-storage';
 
 class Signup extends React.Component {
     constructor(props) {
@@ -25,9 +26,7 @@ class Signup extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log("HELLO IM IN THE HANDLE SUBMIT");
         let userData = this.state;
-        console.log(userData);
         const url = "api/v1/signup/create";
         fetch(url, {
             method: "POST",
@@ -42,9 +41,10 @@ class Signup extends React.Component {
             }
             throw new Error("Network response was not ok.");
         })
-            .then(() => {
-                this.props.history.push("/login")
+            .then(json => {
+              ls.set('user_id', json.id)
             })
+            .then(reload => window.location.reload())
     }
 
     render() {

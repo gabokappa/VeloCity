@@ -4,44 +4,23 @@ import ls from 'local-storage'
 
 class StravaAuth extends Component {
 
-
   constructor(props) {
     super(props);
-    this.state = {
-      newBikes: ['test']
-  };
-  }
-
-  getBikes = () => {
-      const url = "api/v1/strava/find_bikes?user_id="+ls.get("user_id");
-      fetch(url, {
-        method: 'GET',
-        headers: {"Authorization": ls.get('authorization')}
-          }).then(response => {
-              if (response.ok) {
-                  return response.json();
-
-              }else{
-                throw new Error("Network response was not ok.");
-              }
-          })
-          .then(response => this.setState({ newBikes: response.new_bikes}))
-  }
-
-  viewBikes = () => {
-    this.props.history.push('/bikes');
+    this.state = {};
   }
 
   render() {
     const stravaURL = 'http://www.strava.com/oauth/authorize?client_id=40250&response_type=code&redirect_uri=http://localhost:3000/api/v1/strava/authorize/' + ls.get("user_id") + '&scope=read,activity:read,activity:read_all&approval_prompt=force'
     return (
       <div className="container py-1">
-        <h1 className="display-4">Click <a href={stravaURL}> HERE</a> to Authorize us to use your Strava data</h1>
-        <div className="text-right mb-3">
-          <button className="btn btn-primary btn-lg" onClick={this.viewBikes}>Click here to view your Bikes</button>
-          <br/>
-          <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
-        </div>
+        Now that you have registered for our VeloCity App you need to Authorise your Strava account to allow us access to your bike information.
+        Please click the button below, and follow the Strava instructions.  
+        You need to give us access to view both activity and private activity information
+        <br/>
+        <hr/>
+        <a href={stravaURL}> Authorise STRAVA</a> 
+        <br/><br/>
+        <input type="checkbox"/> Please click here to accept our T&C's
       </div>
     )
   }
