@@ -12,7 +12,7 @@ class BikePart extends Component {
     deletePart(event) {
       if(confirm("Are you sure you wish to delete?") === true) {
         console.log(this.props.part.id)
-        const url = `api/v1/components/destroy?comp_id=${this.props.part.id}`;
+        const url = `/api/v1/components/destroy?comp_id=${this.props.part.id}`;
         fetch(url, {
           method: 'GET',
           headers: {"Authorization": ls.get('authorization')}
@@ -25,7 +25,7 @@ class BikePart extends Component {
               throw new Error("Network response was not ok.");
               }
             })
-            // .then(reload => window.location.reload())
+            .then(reload => window.location.reload())
       }
     }
 

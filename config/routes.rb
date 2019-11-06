@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'bike/api/v1/components/destroy', to: 'components#destroy'
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: %i[show create update destroy]
