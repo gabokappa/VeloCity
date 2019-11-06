@@ -50,3 +50,10 @@
     width: 100%;
     opacity: 0.4;
 }
+
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
