@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from './BikePart';
 import BikePartSummary from './BikePartSummary';
+import BikeImage from './BikeImage';
 import ls from 'local-storage';
 
 class Bikes extends React.Component {
@@ -64,14 +65,11 @@ componentDidMount() {
 
 render() {
     const { bikes } = this.state;
-
+    console.log(bikes)
     const allBikesAndParts = bikes.map((bikeAndParts, index) => (
         <div key={index} className="col-md-6 col-lg-4">
             <div className="card mb-4">
-                <img
-                src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
-                className="card-img-top"
-                alt={`${bikeAndParts[0].name} image`}/>
+                <BikeImage frame_type={bikeAndParts[0].frame_type} />
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>

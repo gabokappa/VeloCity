@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from "./BikePart";
+import BikeImage from "./BikeImage";
 import ls from 'local-storage'
 import AddParts from './AddParts'
 
@@ -42,12 +43,8 @@ componentDidMount() {
 
         return (
           <div>
-              <img
-                src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
-                className="img-fluid"
-                height="300" width="400"
-              />
-              <div><AddParts bike={bikeAndParts.bike} /></div>
+            <BikeImage frame_type={bikeAndParts.bike.frame_type} />
+            <div><AddParts bike={bikeAndParts.bike} /></div>
             <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="overlay bg-dark position-absolute">
               <h1 className="display-4 position-relative text-white">
