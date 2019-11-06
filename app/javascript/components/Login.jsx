@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ls from 'local-storage';
+import Image from './bicycle-breaks-professional-6946.jpg';
 
 class Login extends React.Component {
     constructor(props) {
@@ -52,6 +53,7 @@ class Login extends React.Component {
         return (
           <div>
               <Link to="/signup" className="btn btn-link">New to VeloCity? Register here</Link>
+              <div>
             <form className="form-group ml-5 px-2"onSubmit={this.handleSubmit}>
                 <div className="form-group">
                 <label>
@@ -75,6 +77,7 @@ class Login extends React.Component {
                 </div>
                 <input className="btn btn-success" type="submit" value="Login" />
             </form>
+              </div><div><img className="d-lg-inline" src={Image} alt={"welcome image"} /></div>
           </div>
 
         );
