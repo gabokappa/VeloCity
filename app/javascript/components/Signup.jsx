@@ -24,69 +24,70 @@ class Signup extends React.Component {
     }
 
     handleSubmit(event) {
-      event.preventDefault();
-      console.log("HELLO IM IN THE HANDLE SUBMIT");
-      let userData = this.state;
-      console.log(userData);
-      const url = "api/v1/signup/create";
-      fetch(url, {
-          method: "POST",
-          body: JSON.stringify(userData),
-          headers: {
-              'Accept': "application/json",
-              "Content-Type": "application/json"
-          }
-      }).then(response => {
-          if (response.ok) {
-              return response.json();
-          }
-          throw new Error("Network response was not ok.");
-      })
-          .then(() => {
-              this.props.history.push("/login")
-          })
+        event.preventDefault();
+        console.log("HELLO IM IN THE HANDLE SUBMIT");
+        let userData = this.state;
+        console.log(userData);
+        const url = "api/v1/signup/create";
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: {
+                'Accept': "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error("Network response was not ok.");
+        })
+            .then(() => {
+                this.props.history.push("/login")
+            })
     }
 
     render() {
         return (
-            <form className="container py-1" onSubmit={this.handleSubmit}>
-                <label>
-                    First name:
-                    <input
-                        type="text"
-                        name="first_name"
-                        value={this.state.first_name}
-                        onChange={this.handleChange} />
-                </label>
-                <br />
-                <label>
-                    Surname:
-                    <input
-                        type="text"
-                        name="sur_name"
-                        value={this.state.sur_name}
-                        onChange={this.handleChange} />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input
-                        type="text"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange} />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input
-                        type="text"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange} />
-                </label>
-                <br />
-                <input type="submit" value="Submit" />
+            <form className="form-group ml-5 px-2" onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                    <label> First name:
+                        <input className="form-control"
+                               type="text"
+                               name="first_name"
+                               value={this.state.first_name}
+                               onChange={this.handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Surname:
+                        <input className="form-control"
+                               type="text"
+                               name="sur_name"
+                               value={this.state.sur_name}
+                               onChange={this.handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Email:
+                        <input className="form-control"
+                               type="email"
+                               name="email"
+                               value={this.state.email}
+                               onChange={this.handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Password:
+                        <input className="form-control"
+                               type="password"
+                               name="password"
+                               value={this.state.password}
+                               onChange={this.handleChange} />
+                    </label>
+                    <br />
+                </div>
+                <input className="btn btn-primary" type="submit" value="Submit" />
             </form>
         );
     }
