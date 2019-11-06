@@ -73,7 +73,7 @@ render() {
                 alt={`${bikeAndParts[0].name} image`}/>
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
-                    <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
+                    <h5 className="card-title">Distance cycled: {Math.round(bikeAndParts[0].distance_done/1000)} km</h5>
                     <ul>
                         {bikeAndParts[1].map((part, index) => {
                         return <li key={index}><BikePart part={part} /></li>
@@ -100,7 +100,7 @@ render() {
                 <p className="lead text-muted">
                     Here are all of your bikes.
                 </p>
-                <div> 
+                <div>
                     <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
                     &nbsp;
                     <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
