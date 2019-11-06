@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BikePart from './BikePart';
+import BikePartSummary from './BikePartSummary';
+import BikeImage from './BikeImage';
 import ls from 'local-storage';
 
 class Bikes extends React.Component {
@@ -63,26 +65,18 @@ componentDidMount() {
 
 render() {
     const { bikes } = this.state;
-
+    console.log(bikes)
     const allBikesAndParts = bikes.map((bikeAndParts, index) => (
         <div key={index} className="col-md-6 col-lg-4">
             <div className="card mb-4">
-                <img
-                src='https://www.decathlon.co.uk/media/837/8378535/big_1638914.jpg'
-                className="card-img-top"
-                alt={`${bikeAndParts[0].name} image`}/>
+                <BikeImage frame_type={bikeAndParts[0].frame_type} />
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
-                    <h5 className="card-title">Distance cycled: {Math.round(bikeAndParts[0].distance_done/1000)} km</h5>
-                    <ul>
-                        {bikeAndParts[1].map((part, index) => {
-                        return <li key={index}><BikePart part={part} /></li>
-                        })}
-                    </ul>
-
+                    <h5 className="card-title">km's cycled: {Math.round(bikeAndParts[0].distance_done/1000)}</h5>
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
+                    <div><BikePartSummary bikeAndParts={bikeAndParts} /></div>
                 </div>
             </div>
         </div>
@@ -102,7 +96,6 @@ render() {
                 </p>
                 <div>
                     <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
-                    &nbsp;
                     <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
                 </div>
             </div>
