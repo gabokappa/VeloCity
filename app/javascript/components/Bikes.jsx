@@ -72,7 +72,7 @@ render() {
                 <BikeImage frame_type={bikeAndParts[0].frame_type} />
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
-                    <h5 className="card-title">Bike mileage: {bikeAndParts[0].distance_done}</h5>
+                    <h5 className="card-title">km's cycled: {Math.round(bikeAndParts[0].distance_done/1000)}</h5>
                     <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
                         View Bike
                     </Link>
