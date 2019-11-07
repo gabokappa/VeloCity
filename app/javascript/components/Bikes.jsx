@@ -73,7 +73,7 @@ render() {
                 <div className="card-body">
                     <h5 className="card-title">Bike name: {bikeAndParts[0].bike_name}</h5>
                     <h5 className="card-title">Kilometers cycled: {Math.round(bikeAndParts[0].distance_done/1000)}</h5>
-                    <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button">
+                    <Link to={`/bike/${bikeAndParts[0].id}`} className="btn custom-button bt-sx">
                         View Bike
                     </Link>
                     <div><BikePartSummary bikeAndParts={bikeAndParts} /></div>
@@ -95,12 +95,11 @@ render() {
                     Here are all of your bikes.
                 </p>
                 <div>
-                    <button className="btn btn-primary btn-lg" onClick={this.refreshBikes}>Refresh Bikes</button>
-                    &nbsp;
-                    <button className="btn btn-primary btn-lg" onClick={this.getBikes}>Get Bikes</button>
+                    <button className="btn btn-success" onClick={this.refreshBikes}>Refresh Bikes</button>&nbsp;&nbsp;
+                    <button className="btn btn-success" onClick={this.getBikes}>Get Bikes</button>
                 </div>
             </div>
-
+            <br></br>
             <div>
                 <main className="container">
                     <div className="row">
