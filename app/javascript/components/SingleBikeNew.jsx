@@ -61,10 +61,9 @@ class SingleBike extends React.Component {
             </p>
             <div>
               <Link to={`/bikes`}>
-                <button className="btn btn-success">View all bikes</button>&nbsp;&nbsp;
-              </Link>
-              <button className="btn btn-success">Add new component</button>&nbsp;&nbsp;
-              <div><AddParts bike={bikeAndParts.bike} /></div>
+                <button className="btn btn-success"> <button className="btn btn-success btn-sm">View all bikes</button></button>
+              </Link>&nbsp;&nbsp;
+              <button className="btn btn-success"><AddParts bike={bikeAndParts.bike} /></button>&nbsp;&nbsp;
             </div>
           </div>
           <br></br>
@@ -74,8 +73,8 @@ class SingleBike extends React.Component {
               <div className="col-md-6 col-lg-4">
                 <div className="card mb-4">
                   <div className="card-body">
-                    <h5 className="card-title">Bike name:</h5>
-                    <h5 className="card-title">Kilometers cycled:</h5>
+                    <h5 className="card-title">Component name:</h5>
+                    {componentList}
                   </div>
                 </div>
               </div>

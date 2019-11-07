@@ -138,7 +138,7 @@ class AddParts extends React.Component {
         return (
             <div>
             <div className="container">
-              <button onClick={this.toggleForm}>{this.state.button_name}</button>
+              <button className="btn btn-success btn-sm" onClick={this.toggleForm}>{this.state.button_name}</button>
               <div className="dropdown" style={show_drop}>
               <ul>
                <li><button onClick={this.tyreChoice} type="button" className="list-group-item list-group-item-action active">
