@@ -45,6 +45,7 @@ componentDidMount() {
           <div>
             <BikeImage frame_type={bikeAndParts.bike.frame_type} />
             <div><AddParts bike={bikeAndParts.bike} /></div>
+
             <Link to="/bikes" className="btn btn-link">Back to all bikes</Link>
             <div className="overlay bg-dark position-absolute">
               <h1 className="display-4 position-relative text-white">
