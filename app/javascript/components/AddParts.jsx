@@ -59,22 +59,24 @@ class AddParts extends React.Component {
 
     toggleForm(event){
         event.preventDefault();
-        if (this.state.show_drop_down){
-            this.setState({show_drop_down: false});
-            this.setState({button_name: "Add New Component"})
-            this.setState({show_form: false});
-        }else{
+        if (this.state.button_name === "Add New Component"){
             this.setState({show_drop_down: true});
             this.setState({button_name: "Hide"})
         }
-
-        console.log(this.state.show_form)
+        else if (this.state.button_name === "Hide"){
+            this.setState({show_drop_down: false});
+            this.setState({button_name: "Add New Component"})
+        }
+        else if (this.state.button_name === "Cancel"){
+            this.setState({show_form: false});
+            this.setState({button_name: "Add New Component"})
+        }
     }
 
     tyreChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: "Bike tyres"})
       this.setState({max_distance: "500"})
       this.setState({show_form: true})
@@ -83,7 +85,7 @@ class AddParts extends React.Component {
     wheelChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: "Wheel Rims"})
       this.setState({max_distance: "1000"})
       this.setState({show_form: true})
@@ -92,7 +94,7 @@ class AddParts extends React.Component {
     groupChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: "Group Set (Gears and Cogs)"})
       this.setState({max_distance: "2000"})
       this.setState({show_form: true})
@@ -101,7 +103,7 @@ class AddParts extends React.Component {
     brakeChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: "Brakes"})
       this.setState({max_distance: "1500"})
       this.setState({show_form: true})
@@ -110,7 +112,7 @@ class AddParts extends React.Component {
     bracketChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: "Bottom Bracket"})
       this.setState({max_distance: "2500"})
       this.setState({show_form: true})
@@ -119,7 +121,7 @@ class AddParts extends React.Component {
     noChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Add New Component"})
+      this.setState({button_name: "Cancel"})
       this.setState({comp_name: ""})
       this.setState({max_distance: ""})
       this.setState({show_form: true})
@@ -178,6 +180,7 @@ class AddParts extends React.Component {
                           value={this.state.max_distance}
                           onChange={this.handleChange} />
                       </label>
+                      <h5>The recommended maximum usage for TODO is TODO</h5>
                       <br />
                       <br />
                       <input type="submit" value="Submit" />
