@@ -25,8 +25,6 @@ class BikeImage extends Component {
         break;
     }
 
-    console.log(bike_picture)
-
     return (
       <div>
         <img src={bike_picture} className="card-img-top"/>
