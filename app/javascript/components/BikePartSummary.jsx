@@ -19,7 +19,9 @@ class BikePartSummary extends React.Component {
       const replaceSoon = []
       const replaceLater = []
       partsArray.forEach(function(part) {
-        let usage = ( part.max_distance / part.distance_done ) * 100
+        let usage = ( part.distance_done / part.max_distance ) * 100
+        console.log(part.max_distance)
+        console.log(part.distance_done)
         switch (true) {
           case (usage < 75):
             replaceLater.push(part);
@@ -32,9 +34,6 @@ class BikePartSummary extends React.Component {
             break;
         };
       });
-
-      console.log(bikeObject)
-      console.log(partsArray)
 
       return (
         <div>
