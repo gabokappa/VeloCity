@@ -158,11 +158,12 @@ class AddParts extends React.Component {
               <div style={style} >
                 <div className="row">
                   <div className="col">
-                    <h6>{this.props.bike.bike_name}: This bike has done a total of {this.props.bike.distance_done/1000}Km</h6>
-                    <form className="container" onSubmit={this.handleSubmit}>
+                    <h6>{this.props.bike.bike_name}: This bike has done a total of {this.props.bike.distance_done/1000} km</h6>
+                    <form className="form-group" onSubmit={this.handleSubmit}>
                       <label>
-                      Component name:
+                      Component name:&nbsp;
                       <input
+                          className="form-control"
                         type="text"
                         name="comp_name"
                         value={this.state.comp_name}
@@ -170,8 +171,9 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Distance done (Km):
+                      Distance done (km):&nbsp;
                       <input
+                          className="form-control"
                         type="text"
                         name="distance_done"
                         value={this.state.distance_done}
@@ -179,15 +181,15 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Maximum distance (Km):
+                      Maximum distance (km):&nbsp;
                       <input
+                          className="form-control"
                           type="text"
                           name="max_distance"
                           value={this.state.max_distance}
                           onChange={this.handleChange} />
                       </label>
-                      <div style={hide_rec} ><h5>The maximum recommended usage for {this.state.comp_name} is {this.state.max_distance}Km</h5></div>
-                      <br />
+                      <div style={hide_rec} ><h5>The maximum recommended usage for {this.state.comp_name} is {this.state.max_distance} km</h5></div>
                       <br />
                       <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
                       <button className="btn btn-danger btn-sm" onClick={this.toggleForm}>Cancel</button>
