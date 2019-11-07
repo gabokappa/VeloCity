@@ -18,7 +18,7 @@ render() {
        <li><button type="button" className="list-group-item list-group-item-action active">
        Group set</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
-       Brake pads</button></li>
+       Brakes</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
        Bottom Bracket</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">

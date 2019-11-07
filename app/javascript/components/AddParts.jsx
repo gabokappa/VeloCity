@@ -15,7 +15,8 @@ class AddParts extends React.Component {
             start_distance: '',
             show_form: false,
             button_name: 'Add New Component',
-            show_drop_down: false
+            show_drop_down: false,
+            show_rec: true
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -39,7 +40,7 @@ class AddParts extends React.Component {
     handleSubmit(event) {
       event.preventDefault();
       this.state.start_distance = (this.props.bike.distance_done - this.state.distance_done*1000)
-      
+
       let partsData = this.state;
       const url = "/api/v1/components/create";
       fetch(url, {
@@ -71,6 +72,7 @@ class AddParts extends React.Component {
         else if (this.state.button_name === "Cancel"){
             this.setState({show_form: false});
             this.setState({button_name: "Add New Component"})
+            this.setState({show_rec: true})
         }
     }
 
@@ -78,7 +80,7 @@ class AddParts extends React.Component {
       event.preventDefault();
       this.setState({show_drop_down: false,})
       this.setState({button_name: "Cancel"})
-      this.setState({comp_name: "Bike tyres"})
+      this.setState({comp_name: "Tyres"})
       this.setState({max_distance: "500"})
       this.setState({show_form: true})
     }
@@ -87,7 +89,7 @@ class AddParts extends React.Component {
       event.preventDefault();
       this.setState({show_drop_down: false,})
       this.setState({button_name: "Cancel"})
-      this.setState({comp_name: "Wheel Rims"})
+      this.setState({comp_name: "Wheel RimsAAAAAAAA"})
       this.setState({max_distance: "1000"})
       this.setState({show_form: true})
     }
@@ -126,11 +128,13 @@ class AddParts extends React.Component {
       this.setState({comp_name: ""})
       this.setState({max_distance: ""})
       this.setState({show_form: true})
+      this.setState({show_rec: false})
     }
 
     render() {
         const style = this.state.show_form ? {} : {display: 'none'}
         const show_drop = this.state.show_drop_down ? {} : {display: 'none'}
+        const hide_rec = this.state.show_rec ? {} : {display: 'none'}
         return (
             <div>
             <div className="container">
@@ -140,11 +144,11 @@ class AddParts extends React.Component {
                <li><button onClick={this.tyreChoice} type="button" className="list-group-item list-group-item-action active">
                Tyres</button></li>
                <li><button onClick={this.wheelChoice} type="button" className="list-group-item list-group-item-action active">
-               Wheels</button></li>
+               Wheel Rims</button></li>
                <li><button onClick={this.groupChoice} type="button" className="list-group-item list-group-item-action active">
-               Group set (chain + cogs)</button></li>
+               Group set</button></li>
                <li><button onClick={this.brakeChoice} type="button" className="list-group-item list-group-item-action active">
-               Brake pads</button></li>
+               BrakesAAAAAA</button></li>
                <li><button onClick={this.bracketChoice} type="button" className="list-group-item list-group-item-action active">
                Bottom Bracket</button></li>
                <li><button onClick={this.noChoice} type="button" className="list-group-item list-group-item-action active">
@@ -154,6 +158,7 @@ class AddParts extends React.Component {
               <div style={style} >
                 <div className="row">
                   <div className="col">
+                    <h6>{this.props.bike.bike_name}: This bike has done a total of {this.props.bike.distance_done/1000}Km</h6>
                     <form className="container" onSubmit={this.handleSubmit}>
                       <label>
                       Component name:
@@ -165,7 +170,7 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Distance done:
+                      Distance done (Km):
                       <input
                         type="text"
                         name="distance_done"
@@ -174,14 +179,14 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Maximum distance:
+                      Maximum distance (Km):
                       <input
                           type="text"
                           name="max_distance"
                           value={this.state.max_distance}
                           onChange={this.handleChange} />
                       </label>
-                      <h5>The recommended maximum usage for TODO is TODO</h5>
+                      <div style={hide_rec} ><h5>The maximum recommended usage for {this.state.comp_name} is {this.state.max_distance}Km</h5></div>
                       <br />
                       <br />
                       <input type="submit" value="Submit" />
