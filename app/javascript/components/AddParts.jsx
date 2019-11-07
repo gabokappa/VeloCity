@@ -69,7 +69,7 @@ class AddParts extends React.Component {
             this.setState({show_drop_down: false});
             this.setState({button_name: "Add New Component"})
         }
-        else if (this.state.button_name === "Cancel"){
+        else if (this.state.button_name === ""){
             this.setState({show_form: false});
             this.setState({button_name: "Add New Component"})
             this.setState({show_rec: true})
@@ -79,7 +79,7 @@ class AddParts extends React.Component {
     tyreChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: ""})
       this.setState({comp_name: "Tyres"})
       this.setState({max_distance: "500"})
       this.setState({show_form: true})
@@ -88,7 +88,7 @@ class AddParts extends React.Component {
     wheelChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: "", })
       this.setState({comp_name: "Wheel Rims"})
       this.setState({max_distance: "1000"})
       this.setState({show_form: true})
@@ -97,7 +97,7 @@ class AddParts extends React.Component {
     groupChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: ""})
       this.setState({comp_name: "Group Set"})
       this.setState({max_distance: "2000"})
       this.setState({show_form: true})
@@ -106,7 +106,7 @@ class AddParts extends React.Component {
     brakeChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: ""})
       this.setState({comp_name: "Brakes"})
       this.setState({max_distance: "1500"})
       this.setState({show_form: true})
@@ -115,7 +115,7 @@ class AddParts extends React.Component {
     bracketChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: ""})
       this.setState({comp_name: "Bottom Bracket"})
       this.setState({max_distance: "2500"})
       this.setState({show_form: true})
@@ -124,7 +124,7 @@ class AddParts extends React.Component {
     noChoice(event){
       event.preventDefault();
       this.setState({show_drop_down: false,})
-      this.setState({button_name: "Cancel"})
+      this.setState({button_name: ""})
       this.setState({comp_name: ""})
       this.setState({max_distance: ""})
       this.setState({show_form: true})
@@ -138,7 +138,7 @@ class AddParts extends React.Component {
         return (
             <div>
             <div className="container">
-              <button onClick={this.toggleForm}>{this.state.button_name}</button>
+              <button className="btn btn-success btn-sm" onClick={this.toggleForm}>{this.state.button_name}</button>
               <div className="dropdown" style={show_drop}>
               <ul>
                <li><button onClick={this.tyreChoice} type="button" className="list-group-item list-group-item-action active">
@@ -158,11 +158,12 @@ class AddParts extends React.Component {
               <div style={style} >
                 <div className="row">
                   <div className="col">
-                    <h6>{this.props.bike.bike_name}: This bike has done a total of {this.props.bike.distance_done/1000}Km</h6>
-                    <form className="container" onSubmit={this.handleSubmit}>
+                    <h6>{this.props.bike.bike_name}: This bike has done a total of {this.props.bike.distance_done/1000} km</h6>
+                    <form className="form-group" onSubmit={this.handleSubmit}>
                       <label>
-                      Component name:
+                      Component name:&nbsp;
                       <input
+                          className="form-control"
                         type="text"
                         name="comp_name"
                         value={this.state.comp_name}
@@ -170,8 +171,9 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Distance done (Km):
+                      Distance done (km):&nbsp;
                       <input
+                          className="form-control"
                         type="text"
                         name="distance_done"
                         value={this.state.distance_done}
@@ -179,17 +181,18 @@ class AddParts extends React.Component {
                       </label>
                       <br />
                       <label>
-                      Maximum distance (Km):
+                      Maximum distance (km):&nbsp;
                       <input
+                          className="form-control"
                           type="text"
                           name="max_distance"
                           value={this.state.max_distance}
                           onChange={this.handleChange} />
                       </label>
-                      <div style={hide_rec} ><h5>The maximum recommended usage for {this.state.comp_name} is {this.state.max_distance}Km</h5></div>
+                      <div style={hide_rec} ><h5>The maximum recommended usage for {this.state.comp_name} is {this.state.max_distance} km</h5></div>
                       <br />
-                      <br />
-                      <input type="submit" value="Submit" />
+                      <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
+                      <button className="btn btn-danger btn-sm" onClick={this.toggleForm}>Cancel</button>
                     </form>
                   </div>
                 </div>

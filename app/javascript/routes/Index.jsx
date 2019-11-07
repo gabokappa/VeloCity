@@ -5,6 +5,7 @@ import Heading from '../components/Heading';
 import User from '../components/User';
 import Bikes from '../components/Bikes';
 import SingleBike from '../components/SingleBike';
+import SingleBikeNew from '../components/SingleBikeNew';
 import Signup from '../components/Signup';
 import Login from '../components/Login';
 import VelocityRegister from '../components/VelocityRegister';
@@ -18,7 +19,7 @@ export default (
           <Route exact path="/bikes" component={Bikes} />
           <Route exact path="/signup" component={VelocityRegister} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/bike/:id" component={SingleBike} />
+          <Route exact path="/bike/:id" component={SingleBikeNew} />
         </Switch>
     </Router>
 );
