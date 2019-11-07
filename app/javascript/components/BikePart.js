@@ -51,12 +51,13 @@ class BikePart extends Component {
 
   return (
     <div>
-      <div style={wornColour(part)}>Component: {part.comp_name} <br/>
-      Distance done:{(distance_done/1000).toFixed()}Km <br/>
-      Recommended maximum: {(part.max_distance).toFixed()}Km<br/>
+      <div style={wornColour(part)}>
+      Distance done:{(distance_done/1000).toFixed()} km <br/>
+      Recommended maximum: {(part.max_distance).toFixed()} km<br/>
       Percentage worn: { percentWorn(part) }%</div>
       <div>
-      <button onClick={this.deletePart}>Delete</button></div>
+        <br/>
+      <button className="btn btn-warning btn-sm" onClick={this.deletePart}>Delete</button></div>
     </div>
   )};
 }
