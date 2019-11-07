@@ -80,17 +80,6 @@ class SingleBike extends React.Component {
               </div>
             </main>
           </div>
-
-          <div>
-            <div>
-              <div>
-                <ul>
-                  <h5>Bike Components</h5>
-                  {componentList}
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       )
     }
