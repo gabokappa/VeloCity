@@ -12,7 +12,7 @@ class AddParts extends React.Component {
             distance_done: (bike.distance_done / 1000),
             max_distance: '',
             bike_id: bike.id,
-            start_distance: '0',
+            start_distance: '',
             show_form: false,
             button_name: 'Add New Component',
             show_drop_down: false
@@ -38,6 +38,8 @@ class AddParts extends React.Component {
 
     handleSubmit(event) {
       event.preventDefault();
+      this.state.start_distance = (this.props.bike.distance_done - this.state.distance_done*1000)
+      
       let partsData = this.state;
       const url = "/api/v1/components/create";
       fetch(url, {
