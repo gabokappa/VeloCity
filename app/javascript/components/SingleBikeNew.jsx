@@ -43,15 +43,45 @@ class SingleBike extends React.Component {
 
       return (
         <div>
-          <BikeImage frame_type={bikeAndParts.bike.frame_type} />
-          <div><AddParts bike={bikeAndParts.bike} /></div>
 
-          <Link to="/bikes">Back to all bikes</Link>
-          <div>
-            <h1>
-              {bikeAndParts.bike.bike_name}
-            </h1>
+          <div class="container">
+            <div class="row">
+              <div class="span4"></div>
+                <div class="span4">
+                  <BikeImage frame_type={bikeAndParts.bike.frame_type} />
+                </div>
+              <div class="span4"></div>
+            </div>
           </div>
+
+          <div className="container py-1">
+            <h1 className="display-4">{bikeAndParts.bike.bike_name}</h1>
+            <p className="lead text-muted">
+                Here are all of your tracked components
+            </p>
+            <div>
+              <Link to={`/bikes`}>
+                <button className="btn btn-success">View all bikes</button>&nbsp;&nbsp;
+              </Link>
+              <button className="btn btn-success">Add new component</button>&nbsp;&nbsp;
+              <div><AddParts bike={bikeAndParts.bike} /></div>
+            </div>
+          </div>
+          <br></br>
+
+          <div>
+            <main className="container">
+              <div className="col-md-6 col-lg-4">
+                <div className="card mb-4">
+                  <div className="card-body">
+                    <h5 className="card-title">Bike name:</h5>
+                    <h5 className="card-title">Kilometers cycled:</h5>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+
           <div>
             <div>
               <div>
