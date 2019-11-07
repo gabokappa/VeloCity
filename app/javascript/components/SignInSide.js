@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Image from './bicycle-breaks-professional-6946.jpg';
+import ls from 'local-storage';
 
 function Copyright() {
     return (
@@ -57,6 +58,31 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignInSide() {
+
+    const handleSubmit = () => {
+        event.preventDefault();
+        console.log(document.getElementById("email").value);
+        const body_test = JSON.stringify({"user": {
+                "email": document.getElementById("email").value,
+                "password": document.getElementById("password").value
+            }
+        })
+        const url = "api/v1/tokens";
+        let textStuff = ""
+        fetch(url, {
+            method: "POST",
+            body: body_test,
+            headers: {
+                'Accept': "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.text())
+          .then(json => {
+                ls.set('authorization', JSON.parse(json).token)
+                ls.set('user_id', JSON.parse(json).user_id)
+          })
+          .then(redirect => window.location.replace("/bikes"));
+    }
     const classes = useStyles();
 
     return (
@@ -71,7 +97,7 @@ export default function SignInSide() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form onSubmit={handleSubmit} className={classes.form} noValidate>
                         <TextField
                             variant="outlined"
                             margin="normal"
