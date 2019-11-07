@@ -62,6 +62,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignInSide() {
 
+    const handleErrors = (response) => {
+    if (!response.ok) {
+        alert("Your login details are incorrect, please try again.");
+    }
+    return response;
+    }
+
     const handleSubmit = () => {
         event.preventDefault();
         console.log(document.getElementById("email").value);
@@ -70,14 +77,6 @@ export default function SignInSide() {
                 "password": document.getElementById("password").value
             }
         })
-
-    const handleErrors = (response) => {
-        if (!response.ok) {
-            alert("Your login details are incorrect, please try again.");
-        }
-        return response;
-    }
-
         const url = "api/v1/tokens";
         let textStuff = ""
         fetch(url, {
