@@ -52,11 +52,11 @@ class SingleBike extends React.Component {
 
           <div class="container">
             <div class="row">
-              <div class="span4"></div>
-                <div class="span4">
+              <div class="span1"></div>
+                <div class="span1">
                   <BikeImage frame_type={bikeAndParts.bike.frame_type} />
                 </div>
-              <div class="span4"></div>
+              <div class="span1"></div>
             </div>
           </div>
 

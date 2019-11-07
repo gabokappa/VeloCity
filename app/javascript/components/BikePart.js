@@ -39,7 +39,7 @@ class BikePart extends Component {
 
     function wornColour(part) {
       if(percentWorn(part) < 75) {
-        return {backgroundColor: "green"}
+        return {backgroundColor: "green", color:"white"}
       }
       else if(percentWorn(part) < 100) {
         return {backgroundColor: "orange"}
@@ -57,7 +57,7 @@ class BikePart extends Component {
       Percentage worn: { percentWorn(part) }%</div>
       <div>
         <br/>
-      <button className="btn btn-warning btn-sm" onClick={this.deletePart}>Delete</button></div>
+      <button className="btn btn-danger btn-sm" onClick={this.deletePart}>Delete</button></div>
     </div>
   )};
 }
