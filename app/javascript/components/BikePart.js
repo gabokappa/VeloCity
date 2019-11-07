@@ -39,22 +39,22 @@ class BikePart extends Component {
 
     function wornColour(part) {
       if(percentWorn(part) < 75) {
-        return {backgroundColor: "green", color:"white"}
+        return {backgroundColor: "#28a745", color:"white"}
       }
       else if(percentWorn(part) < 100) {
-        return {backgroundColor: "orange"}
+        return {backgroundColor: "#f0ad4e", color:"white"}
       }
       else {
-        return {backgroundColor: "red"}
+        return {backgroundColor: "#dc3545", color:"white"}
     };
   };
 
   return (
     <div>
       <div style={wornColour(part)}>
-      Distance done:{(distance_done/1000).toFixed()} km <br/>
-      Recommended maximum: {(part.max_distance).toFixed()} km<br/>
-      Percentage worn: { percentWorn(part) }%</div>
+      &nbsp;&nbsp;Distance done:{(distance_done/1000).toFixed()} km <br/>
+      &nbsp;&nbsp;Recommended maximum: {(part.max_distance).toFixed()} km<br/>
+      &nbsp;&nbsp;Percentage worn: { percentWorn(part) }%</div>
       <div>
         <br/>
       <button className="btn btn-danger btn-sm" onClick={this.deletePart}>Delete</button></div>
