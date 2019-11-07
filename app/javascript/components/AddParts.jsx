@@ -24,7 +24,7 @@ class AddParts extends React.Component {
         this.toggleForm = this.toggleForm.bind(this);
         this.tyreChoice = this.tyreChoice.bind(this);
         this.wheelChoice = this.wheelChoice.bind(this);
-        this.brakeChoice = this.wheelChoice.bind(this);
+        this.brakeChoice = this.brakeChoice.bind(this);
         this.groupChoice = this.groupChoice.bind(this);
         this.bracketChoice = this.bracketChoice.bind(this);
         this.noChoice = this.noChoice.bind(this);
@@ -89,7 +89,7 @@ class AddParts extends React.Component {
       event.preventDefault();
       this.setState({show_drop_down: false,})
       this.setState({button_name: "Cancel"})
-      this.setState({comp_name: "Wheel RimsAAAAAAAA"})
+      this.setState({comp_name: "Wheel Rims"})
       this.setState({max_distance: "1000"})
       this.setState({show_form: true})
     }
@@ -148,7 +148,7 @@ class AddParts extends React.Component {
                <li><button onClick={this.groupChoice} type="button" className="list-group-item list-group-item-action active">
                Group set</button></li>
                <li><button onClick={this.brakeChoice} type="button" className="list-group-item list-group-item-action active">
-               BrakesAAAAAA</button></li>
+               Brakes</button></li>
                <li><button onClick={this.bracketChoice} type="button" className="list-group-item list-group-item-action active">
                Bottom Bracket</button></li>
                <li><button onClick={this.noChoice} type="button" className="list-group-item list-group-item-action active">
