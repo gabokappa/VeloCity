@@ -16,13 +16,13 @@ render() {
        <li><button type="button" className="list-group-item list-group-item-action active">
        Wheels</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
-       Group set (chain + cogs)</button></li>
+       Group set</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
-       Brake pads</button></li>
+       Brakes</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
        Bottom Bracket</button></li>
        <li><button type="button" className="list-group-item list-group-item-action active">
-       For a bespoke component please enter your own data</button></li>
+       Other</button></li>
         </ul>
         </div>
 

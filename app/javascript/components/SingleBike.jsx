@@ -36,7 +36,7 @@ componentDidMount() {
         if (bikeAndParts.components.length > 0) {
           componentList = bikeAndParts.components.map((component, index) => (
               <li key={index} className="list-group-item">
-                <BikePart part={component}/>
+                <BikePart part={component} bike_distance={bikeAndParts.bike.distance_done}/>
               </li>
             ));
         }

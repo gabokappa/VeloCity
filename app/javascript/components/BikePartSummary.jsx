@@ -42,7 +42,7 @@ class BikePartSummary extends React.Component {
         <br/><h5>Components stored: {partsArray.length}</h5></div>
         <div><h6 style={{ color: "red" }}>Need replacing: {replaceNow.length}</h6></div>
         <div><h6 style={{ color: "orange" }}>Replace soon: {replaceSoon.length}</h6></div>
-        <div><h6 style={{color: "green" }}>In good condition: {replaceLater.length}</h6></div>
+        <div><h6 style={{ color: "green" }}>In good condition: {replaceLater.length}</h6></div>
         </div>
       )
 
