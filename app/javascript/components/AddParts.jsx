@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import DropDownMenu from './DropDownMenu'
 import DropMenu from './DropMenu'
 
 class AddParts extends React.Component {
@@ -10,7 +9,7 @@ class AddParts extends React.Component {
         const { bike } = props
         this.state = {
             comp_name: '',
-            distance_done: bike.distance_done,
+            distance_done: (bike.distance_done / 1000),
             max_distance: '',
             bike_id: bike.id,
             start_distance: '0',
@@ -95,7 +94,7 @@ class AddParts extends React.Component {
       event.preventDefault();
       this.setState({show_drop_down: false,})
       this.setState({button_name: "Cancel"})
-      this.setState({comp_name: "Group Set (Gears and Cogs)"})
+      this.setState({comp_name: "Group Set"})
       this.setState({max_distance: "2000"})
       this.setState({show_form: true})
     }
