@@ -35,9 +35,15 @@ class SingleBike extends React.Component {
       let componentList = "No bike components registered";
       if (bikeAndParts.components.length > 0) {
         componentList = bikeAndParts.components.map((component, index) => (
-          <li key={index}>
+            <div key={index} className="col-md-6 col-lg-4">
+              <div className="card mb-4">
+                <div className="card-body">
+                  <h5 className="card-title"> {component.comp_name}</h5>
+                  <h5 className="card-title"></h5>
             <BikePart part={component} bike_distance={bikeAndParts.bike.distance_done}/>
-          </li>
+                </div>
+              </div>
+            </div>
         ));
       }
 
@@ -70,13 +76,8 @@ class SingleBike extends React.Component {
 
           <div>
             <main className="container">
-              <div className="col-md-6 col-lg-4">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h5 className="card-title">Component name:</h5>
+              <div className="row">
                     {componentList}
-                  </div>
-                </div>
               </div>
             </main>
           </div>
