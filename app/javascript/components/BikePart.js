@@ -18,7 +18,6 @@ class BikePart extends Component {
             })
           .then(response => {
             if (response.ok) {
-                    // return response.json();
               console.log(response)
             }else{
               throw new Error("Network response was not ok.");
@@ -31,7 +30,7 @@ class BikePart extends Component {
   render() {
     const { part } = this.props
     function percentWorn(part) {
-      return (( part.distance_done / part.max_distance ) * 100).toFixed()
+      return (( (part.distance_done/1000) / part.max_distance ) * 100).toFixed()
     }
 
     function wornColour(part) {
@@ -47,17 +46,13 @@ class BikePart extends Component {
   };
 
   return (
-    <div><div style={wornColour(part)}>Component: {part.comp_name} <br/>
-    Distance done:{part.distance_done}m <br/>
-    Recommended maximum: {part.max_distance}m <br/>
-    Percentage worn: { percentWorn(part) }%</div>
-    <div><button onClick={this.deletePart}>Delete</button></div>
-
-
-
-
-
-
+    <div>
+      <div style={wornColour(part)}>Component: {part.comp_name} <br/>
+      Distance done:{part.distance_done/1000}Km <br/>
+      Recommended maximum: {part.max_distance}Km<br/>
+      Percentage worn: { percentWorn(part) }%</div>
+      <div>
+      <button onClick={this.deletePart}>Delete</button></div>
     </div>
   )};
 }
