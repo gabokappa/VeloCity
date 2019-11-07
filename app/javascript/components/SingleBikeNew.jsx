@@ -53,7 +53,7 @@ class SingleBike extends React.Component {
           <div class="container">
             <div class="row">
               <div class="span1"></div>
-                <div class="span1">
+                <div className="mx-auto d-block">
                   <BikeImage frame_type={bikeAndParts.bike.frame_type} />
                 </div>
               <div class="span1"></div>
