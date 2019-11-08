@@ -31,10 +31,10 @@ class BikePart extends Component {
     const { part } = this.props
     const { bike_distance } = this.props
     const distance_done = bike_distance - part.start_distance
-    const max_distance = part.max_distance * 1000
+    const max_distance = part.max_distance
 
     function percentWorn(part) {
-      return (( distance_done / max_distance ) * 100).toFixed()
+      return (( distance_done / (max_distance*1000) ) * 100).toFixed()
     }
 
     function wornColour(part) {
