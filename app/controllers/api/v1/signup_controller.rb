@@ -3,9 +3,6 @@ class Api::V1::SignupController < ApplicationController
   def index; end
 
   def create
-    p 'IN THE CREATE FUNCTION'
-    p params
-    p 'BEFORE THE CREATE CALL'
     @user = User.create(email: params['email'], password: params['password'],
                 first_name: params['first_name'], sur_name: params['sur_name'])
     if @user.save

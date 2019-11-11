@@ -34,4 +34,3 @@ package-lock.json
 ./coverage
 ./coverage/assets
 /coverage/*
-/.idea
