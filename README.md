@@ -5,20 +5,12 @@ This application works hand in hand with the Activity Logging site Strava.  The 
 
 This App monitors the individual components on a bike, and tracks ther use, letting the user know when they have reached their recommended replacement distance.
 
-## User Stories
-### Basic
-```
-As a bike enthusiast I want to know when I need to change a bike component
-As a user I want to log into the application to see personalised information about my bike
-As a bike enthusiast I want to know how many miles until I need to change my components
-As a user I want to be able to add components to be tracked (input brand, first usage date, lifespan)
-```
-### Advanced
-```
-As a user I want to be able to tell the app when I have replaced a part
-As a user I want to be able to add a different bike to track its components
-As a user I want the app to make recommendations on lifespan
-```
+## Table of contents
+* [Installation](#installation-and-usage)
+* [Usage](#usage)
+* [Requirements](#requirements)
+* [Approach](#approach)
+* [Tests](#tests)
 
 ## Installation
 To get a development environment running:
@@ -36,6 +28,20 @@ $ db:migrate RAILS_ENV=test
 - Start local server and visit ```http://localhost:3000``` in browser to view VeloCity homepage
 ```
 $ rails s
+```
+## User Stories
+### Basic
+```
+As a bike enthusiast I want to know when I need to change a bike component
+As a user I want to log into the application to see personalised information about my bike
+As a bike enthusiast I want to know how many miles until I need to change my components
+As a user I want to be able to add components to be tracked (input brand, first usage date, lifespan)
+```
+### Advanced
+```
+As a user I want to be able to tell the app when I have replaced a part
+As a user I want to be able to add a different bike to track its components
+As a user I want the app to make recommendations on lifespan
 ```
 
 ## Technologies Used
