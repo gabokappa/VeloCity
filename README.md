@@ -59,20 +59,22 @@ As a user I want the app to make recommendations on lifespan
 ```
 ## Usage
 
-SignUp - New user signs up
-[GIF]
+SignUp - New user signs up to the app
 
-Authorize Strava
-[GIF
+![](public/register.gif)
 
-Login to account
-[GIF]
+Authorize Strava - after sign up the user is prompted to login to their Strava account and authorize our app to use it.
+![](public/authorize.gif)
+
+Log back into the account and retrieve bikes from Strava account through 'get bikes' button. This shoudl retrieve the distance in kilometers that your bike has done.
+
+![](public/get-bikes.gif)
 
 Add components
-[GIF]
+![](public/add-part.gif)
 
 Refresh
-[GIF]
+![](public/refresh-bike.gif
 
 ## Technologies Used
 | Technology | Description | Use |
