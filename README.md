@@ -6,7 +6,7 @@ This application works hand in hand with the Activity Logging site Strava.  The 
 This App monitors the individual components on a bike, and tracks ther use, letting the user know when they have reached their recommended replacement distance.
 
 ## Table of contents
-* [Installation](#installation-and-usage)
+* [Installation](#installation)
 * [Usage](#usage)
 * [Requirements](#requirements)
 * [Approach](#approach)
