@@ -59,6 +59,21 @@ As a user I want the app to make recommendations on lifespan
 ```
 ## Usage
 
+SignUp - New user signs up
+[GIF]
+
+Authorize Strava
+[GIF
+
+Login to account
+[GIF]
+
+Add components
+[GIF]
+
+Refresh
+[GIF]
+
 ## Technologies Used
 | Technology | Description | Use |
 | :--------------------------------: | :--------------------------------: | :--------------------------------: |
