@@ -15,12 +15,11 @@ Main contributors:
 * [Eduard Kulcsickij-Gut](https://github.com/EdZeno)
 * [Thomas Ross](https://github.com/Gotteschalk)
 
-For more details 
 
 ## Table of contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Requirements](#requirements)
+* [User stories](#user-stories)
 * [Approach](#approach)
 * [Tests](#tests)
 
