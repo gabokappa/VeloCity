@@ -21,20 +21,23 @@ Main contributors:
 * [Usage](#usage)
 * [User stories](#user-stories)
 * [Approach](#approach)
-* [Tests](#tests)
 
 ## Installation
-To get a development environment running:
+To get a development environment running please clone this repo in your desired directory:
+```
+$ git clone git@github.com:gabokappa/VeloCity.git
+```
 - Install gems and dependencies
 ```
 $ bundle install
 $ npm install --check-files
+$ yarn install
 ```
 - Create development and test env databases and tables
 ```
 $ rails db:create
 $ rails db:migrate
-$ db:migrate RAILS_ENV=test
+$ rails db:migrate RAILS_ENV=test
 ```
 - Start local server and visit ```http://localhost:3000``` in browser to view VeloCity homepage
 ```
@@ -54,6 +57,7 @@ As a user I want to be able to tell the app when I have replaced a part
 As a user I want to be able to add a different bike to track its components
 As a user I want the app to make recommendations on lifespan
 ```
+## Usage
 
 ## Technologies Used
 | Technology | Description | Use |
