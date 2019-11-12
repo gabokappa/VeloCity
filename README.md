@@ -1,9 +1,21 @@
 # VeloCity - README
 
+This Bike Component Tracking App was built as a final project of the 16 week Makers Academy Junior Software development course in November 2019. The aim of the project is to work as a team to build a full stack software application that both reinforces the learning of the course to date and demonstrates our skills as junior full stack devs. The exact functionality and technical specifications of the App were down to us to decide.
+
 ## What the App has been written for
 This application works hand in hand with the Activity Logging site Strava.  The problem we have solved is that knowing how far your bike has ridden does not help you judge whether the components on the bike need replacing.
 
 This App monitors the individual components on a bike, and tracks ther use, letting the user know when they have reached their recommended replacement distance.
+
+Main contributors:
+
+* [Karlo De Guzman](https://github.com/kdeg0040)
+* [Gabriel Gonzalez](https://github.com/gabokappa)
+* [James Holtan](https://github.com/BigTallJim)
+* [Eduard Kulcsickij-Gut](https://github.com/EdZeno)
+* [Thomas Ross](https://github.com/Gotteschalk)
+
+For more details 
 
 ## Table of contents
 * [Installation](#installation)
