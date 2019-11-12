@@ -71,10 +71,12 @@ Log back into the account and retrieve bikes from Strava account through 'get bi
 ![](public/get-bikes.gif)
 
 Add components
+
 ![](public/add-part.gif)
 
 Refresh
-![](public/refresh-bike.gif
+
+![](public/refresh-bike.gif)
 
 ## Technologies Used
 | Technology | Description | Use |
