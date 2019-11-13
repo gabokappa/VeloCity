@@ -59,22 +59,26 @@ As a user I want the app to make recommendations on lifespan
 ```
 ## Usage
 
-SignUp - New user signs up to the app
+**SignUp** - Starting on the homepage a new user signs up to the app.
+
 
 ![](public/register.gif)
 
-Authorize Strava - after sign up the user is prompted to login to their Strava account and authorize our app to use it.
+**Authorize Strava** - After sign up the user is prompted to login to their Strava account and authorise VeloCity.
+The user is redirected to the VeloCity login page.
+
 ![](public/authorize.gif)
 
-Log back into the account and retrieve bikes from Strava account through 'get bikes' button. This shoudl retrieve the distance in kilometers that your bike has done.
+**Get Bikes** - The user logs in to VeloCity and retrieves bikes from Strava account through the 'Get bikes' button. Bikes associated with the user's Strava account now appear with the distance they have done in kilometres.
 
 ![](public/get-bikes.gif)
 
-Add components
+**Add components** - Once the user has their bikes in the VeloCity account, they can view a single bike to add a bike part from a drop down menu. Once the part is chosen there are some fields to fill in which have placeholder values and a suggested lifespan for that part. The part appears in green to show that it hasn't been used much.
+
 
 ![](public/add-part.gif)
 
-Refresh
+**Refresh** - If the user goes for a ride, then logs back in or simply hits 'Refresh' bikes, the kilometres cycled increases and the bike parts have moved to 'replace soon' and 'need replacing' status.
 
 ![](public/refresh-bike.gif)
 
