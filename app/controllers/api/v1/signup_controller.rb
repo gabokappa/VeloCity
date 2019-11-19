@@ -15,8 +15,6 @@ class Api::V1::SignupController < ApplicationController
   def show; end
 
   def login_check
-    p 'THis has been called'
-    p params['email']
   end
 end
 

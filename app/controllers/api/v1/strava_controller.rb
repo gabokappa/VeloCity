@@ -20,7 +20,16 @@ class Api::V1::StravaController < ApplicationController
 
   # Newly Authorised User - update all fields on table
   def authorize
-    response = RestClient.post 'https://www.strava.com/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', code: params["code"], grant_type: 'authorization_code' }
+
+    if Rails.env.production?
+      @clientid = '40928'
+      @clients = 'dc6d5affd7d09115b0cd36e8f325b11d0125dfbd'
+    else
+      @clientid = '40250'
+      @clients = '700b02392cd20d926d066de6a28601acb90772a8'
+    end
+
+    response = RestClient.post 'https://www.strava.com/oauth/token', { client_id: @clientid, client_secret: @clients, code: params["code"], grant_type: 'authorization_code' }
     json = JSON.parse(response)
     user = User.find_by(id: params["user_id"])
     user.update(strava_id: json['athlete']['id'], access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
@@ -100,7 +109,16 @@ class Api::V1::StravaController < ApplicationController
 
   # If required, gets new authorisation code and refresh token
   def refresh_authorisation(user)
-    response = RestClient.post 'https://www.strava.com/api/v3/oauth/token', { client_id: '40250', client_secret: '700b02392cd20d926d066de6a28601acb90772a8', grant_type: 'refresh_token', refresh_token: user.refresh_token }
+
+    if Rails.env.production?
+      @clientid = '40928'
+      @clients = 'dc6d5affd7d09115b0cd36e8f325b11d0125dfbd'
+    else
+      @clientid = '40250'
+      @clients = '700b02392cd20d926d066de6a28601acb90772a8'
+    end
+
+    response = RestClient.post 'https://www.strava.com/api/v3/oauth/token', { client_id: @clientid, client_secret: @clients, grant_type: 'refresh_token', refresh_token: user.refresh_token }
     json = JSON.parse(response)
     user.update(access_token: json['access_token'], access_token_expiry: Time.at(json['expires_at']), refresh_token: json['refresh_token'])
   end

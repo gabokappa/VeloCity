@@ -55,7 +55,17 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
   const envURL = window.location.origin;
-  const stravaURL = 'http://www.strava.com/oauth/authorize?client_id=40250&response_type=code&redirect_uri=' + envURL + '/api/v1/strava/authorize/' + ls.get("user_id") + '&scope=read,activity:read,activity:read_all&approval_prompt=force'
+  var appID;
+
+  function getAppID() {
+    if (window.location.origin === 'http://localhost:3000') {
+      return '40250'
+    } else {
+      return '40928'
+    }
+  }
+
+  const stravaURL = `http://www.strava.com/oauth/authorize?client_id=${getAppID()}&response_type=code&redirect_uri=` + envURL + '/api/v1/strava/authorize/' + ls.get("user_id") + '&scope=read,activity:read,activity:read_all&approval_prompt=force'
 
   return (
     <Container component="main" maxWidth="xs">
