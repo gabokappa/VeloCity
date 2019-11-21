@@ -39,7 +39,7 @@ class AddParts extends React.Component {
 
     handleSubmit(event) {
       event.preventDefault();
-      this.state.start_distance = (this.props.bike.distance_done - this.state.distance_done*1000)
+      this.state.start_distance = (this.props.bike.distance_done - this.state.distance_done * 1000);
 
       let partsData = this.state;
       const url = "/api/v1/components/create";
@@ -71,70 +71,70 @@ class AddParts extends React.Component {
         }
         else if (this.state.button_name === ""){
             this.setState({show_form: false});
-            this.setState({button_name: "Add New Component"})
+            this.setState({button_name: "Add New Component"});
             this.setState({show_rec: true})
         }
     }
 
     tyreChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: ""})
-      this.setState({comp_name: "Tyres"})
-      this.setState({max_distance: "500"})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: ""});
+      this.setState({comp_name: "Tyres"});
+      this.setState({max_distance: "500"});
       this.setState({show_form: true})
     }
 
     wheelChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: "", })
-      this.setState({comp_name: "Wheel Rims"})
-      this.setState({max_distance: "1000"})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: "", });
+      this.setState({comp_name: "Wheel Rims"});
+      this.setState({max_distance: "1000"});
       this.setState({show_form: true})
     }
 
     groupChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: ""})
-      this.setState({comp_name: "Group Set"})
-      this.setState({max_distance: "2000"})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: ""});
+      this.setState({comp_name: "Group Set"});
+      this.setState({max_distance: "2000"});
       this.setState({show_form: true})
     }
 
     brakeChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: ""})
-      this.setState({comp_name: "Brakes"})
-      this.setState({max_distance: "1500"})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: ""});
+      this.setState({comp_name: "Brakes"});
+      this.setState({max_distance: "1500"});
       this.setState({show_form: true})
     }
 
     bracketChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: ""})
-      this.setState({comp_name: "Bottom Bracket"})
-      this.setState({max_distance: "2500"})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: ""});
+      this.setState({comp_name: "Bottom Bracket"});
+      this.setState({max_distance: "2500"});
       this.setState({show_form: true})
     }
 
     noChoice(event){
       event.preventDefault();
-      this.setState({show_drop_down: false,})
-      this.setState({button_name: ""})
-      this.setState({comp_name: ""})
-      this.setState({max_distance: ""})
-      this.setState({show_form: true})
+      this.setState({show_drop_down: false,});
+      this.setState({button_name: ""});
+      this.setState({comp_name: ""});
+      this.setState({max_distance: ""});
+      this.setState({show_form: true});
       this.setState({show_rec: false})
     }
 
     render() {
-        const style = this.state.show_form ? {} : {display: 'none'}
-        const show_drop = this.state.show_drop_down ? {} : {display: 'none'}
-        const hide_rec = this.state.show_rec ? {} : {display: 'none'}
+        const style = this.state.show_form ? {} : {display: 'none'};
+        const show_drop = this.state.show_drop_down ? {} : {display: 'none'};
+        const hide_rec = this.state.show_rec ? {} : {display: 'none'};
         return (
             <div>
             <div className="container">
