@@ -15,7 +15,7 @@ class Bikes extends React.Component {
     }
 
 componentDidMount() {
-    const url = "api/v1/bikes/index?user_id="+ls.get('user_id')
+    const url = "api/v1/bikes/index?user_id="+ls.get('user_id');
     fetch(url, {
         method: 'GET',
         headers: {"Authorization": ls.get('authorization')}
@@ -32,19 +32,18 @@ componentDidMount() {
 
     refreshBikes = () => {
         var bike_ids = [];
-        console.log(this.state.bikes);
-        this.state.bikes.forEach(function(bike) {bike_ids.push(bike[0].strava_gear_id) } )
+        this.state.bikes.forEach(function(bike) {bike_ids.push(bike[0].strava_gear_id) } );
         const url = "api/v1/strava/refresh_bikes?bike_ids="+bike_ids+"&user_id="+ls.get("user_id");
         fetch(url, {
             method: 'POST',
             headers: {"Authorization": ls.get('authorization')}
         }).then(response => {
             if (!response.ok) {
-                alert("You must be logged in")
+                alert("You must be logged in");
                 this.props.history.push('/login');
             }
         }).then(reload => window.location.reload())
-    }
+    };
 
     getBikes = () => {
     const url = "api/v1/strava/find_bikes?user_id="+ls.get("user_id");
@@ -60,12 +59,11 @@ componentDidMount() {
             }
         })
         .then(reload => window.location.reload())
-    }
+    };
     // TODO - should really be refreshing the component, not the whole page
 
 render() {
     const { bikes } = this.state;
-    console.log(bikes)
     const allBikesAndParts = bikes.map((bikeAndParts, index) => (
         <div key={index} className="col-md-6 col-lg-4">
             <div className="card mb-4">
