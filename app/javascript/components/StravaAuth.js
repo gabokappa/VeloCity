@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
   const envURL = window.location.origin;
-  var appID;
+
 
   function getAppID() {
     if (window.location.origin === 'http://localhost:3000') {
